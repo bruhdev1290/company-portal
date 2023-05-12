@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+<head>
+
+<!--
+    ===========
+    GLOBAL META
+    ===========
+-->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+    ==================
+    PAGE-SPECIFIC META
+    ==================
+-->
+
+    <title>Complaint detail</title>
+
+<!--
+    ======
+    STYLES
+    ======
+    The number of stylesheets here must be kept to a minimum.
+    Unless adding a significant amount of CSS that is specific to a single page
+    or section of the site, all new styles should be added to src/static/css/app.less.
+-->
+
+<!--[if lt IE 9]>      <link rel="stylesheet" href="static/css/main.ie.min.css"> <![endif]-->
+<!--[if gt IE 8]><!--> <link rel="stylesheet" href="static/css/main.min.css"> <!--<![endif]-->
+
+<!--
+    ============
+    HEAD SCRIPTS
+    ============
+    The following scripts must be included in the head. DO NOT ADD ANY MORE.
+    All other scripts should go before the closing body tag.
+    If you come across a script that makes a convincing case to be included in
+    the head, then file an issue or PR to discuss including it.
+-->
+
+<!--[if lt IE 9]>
+    <script src="static/vendor/html5shiv/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+
+    <script>
+        // Confirm availability of JS and remove no-js class from html
+        var docElement = document.documentElement;
+        docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
+    </script>
+
+</head>
+
+<body data-active-page="complaints-active">
+
+<!--
+    =================
+    Begin page source
+    =================
+-->
+
+<header class="global-header">
+    <!-- Handlebars inserts global header here -->
+</header>
+
+<main class="content content__2-1 content__bleedbar complaint">
+    <div class="content_wrapper">
+        <nav class="breadcrumbs breadcrumbs__main-first">
+            <a class="breadcrumbs_link" href="complaints-active.html">
+                Active complaints
+            </a>
+        </nav>
+    </div>
+    <div class="content_wrapper">
+        <div class="content_main complaint_details">
+            <h1>
+                160617-000001
+            </h1>
+            <section class="complaint_section complaint_consumer-info">
+                <h2>
+                    Primary consumer information
+                </h2>
+                <div class="block block__bg block__flush-top block__flush-bottom complaint_block">
+                    <div class="content-l">
+                        <div class="content-l_col content-l_col-1-2">
+                            <dl class="list list__unstyled">
+                                <dt>
+                                    Full name
+                                </dt>
+                                <dd>
+                                    Mr. John A. Doe Jr.
+                                </dd>
+                                <dt>
+                                    Email address
+                                </dt>
+                                <dd>
+                                    john.doe@gmail.com
+                                </dd>
+                                <dt>
+                                    Phone
+                                </dt>
+                                <dd>
+                                    (555) 555-5555
+                                </dd>
+                                <dt>
+                                    Address
+                                </dt>
+                                <dd>
+                                    2450 Oakdale Blvd<br>
+                                    Coralville, IA 52241<br>
+                                    United States
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="content-l_col content-l_col-1-2">
+                            <dl class="list list__unstyled">
+                                <dt>
+                                    Loan number
+                                </dt>
+                                <dd>
+                                    8654218
+                                </dd>
+                                <dt>
+                                    Service member?
+                                </dt>
+                                <dd>
+                                    Yes
+                                </dd>
+                                <dt>
+                                    Service member status
+                                </dt>
+                                <dd>
+                                    Reserve
+                                </dd>
+                                <dt>
+                                    Spouse of service member?
+                                </dt>
+                                <dd>
+                                    No
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="complaint_section complaint_additional-consumer-info">
+                <h2>
+                    Additional consumer information
+                </h2>
+                <div class="block block__bg block__flush-top block__flush-bottom complaint_block">
+                    <div class="content-l">
+                        <div class="content-l_col content-l_col-1-2">
+                            <dl class="list list__unstyled">
+                                <dt>
+                                    Full name
+                                </dt>
+                                <dd>
+                                    Mrs. Jane G. Doe PhD.
+                                </dd>
+                                <dt>
+                                    Email address
+                                </dt>
+                                <dd>
+                                    prof_jane_doe@gmail.com
+                                </dd>
+                                <dt>
+                                    Phone
+                                </dt>
+                                <dd>
+                                    (555) 555-5555
+                                </dd>
+                                <dt>
+                                    Address
+                                </dt>
+                                <dd>
+                                    2450 Oakdale Blvd<br>
+                                    Coralville, IA 52241<br>
+                                    United States
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="content-l_col content-l_col-1-2">
+                            <dl class="list list__unstyled">
+                                <dt>
+                                    Involvement in complaint
+                                </dt>
+                                <dd>
+                                    Additional account holder
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="complaint_section complaint_additional-poc-info">
+                <h2>
+                    Additional point of contact
+                </h2>
+                <div class="block block__bg block__flush-top block__flush-bottom complaint_block">
+                    <div class="content-l">
+                        <div class="content-l_col content-l_col-1-2">
+                            <dl class="list list__unstyled">
+                                <dt>
+                                    Full name
+                                </dt>
+                                <dd>
+                                    Mr. Joseph Q. Public Esq.
+                                </dd>
+                                <dt>
+                                    Email address
+                                </dt>
+                                <dd>
+                                    publicj@publiclaw.com
+                                </dd>
+                                <dt>
+                                    Phone
+                                </dt>
+                                <dd>
+                                    (555) 444-4444
+                                </dd>
+                                <dt>
+                                    Address
+                                </dt>
+                                <dd>
+                                    180 S. Linn<br>
+                                    Iowa City, IA 52245<br>
+                                    United States
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="content-l_col content-l_col-1-2">
+                            <dl class="list list__unstyled">
+                                <dt>
+                                    Relationship to consumer
+                                </dt>
+                                <dd>
+                                    Attorney
+                                </dd>
+                                <dt>
+                                    Law firm or practice
+                                </dt>
+                                <dd>
+                                    Public, Public, and Public LLP
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="complaint_section complaint_additional-product-info">
+                <h2>
+                    Product information
+                </h2>
+                <div class="block block__bg block__flush-top block__flush-bottom complaint_block">
+                    <div class="content-l">
+                        <div class="content-l_col content-l_col-1-2">
+                            <dl class="list list__unstyled">
+                                <dt>
+                                    Product
+                                </dt>
+                                <dd>
+                                    Home mortgage
+                                </dd>
+                                <dt>
+                                    Issue
+                                </dt>
+                                <dd>
+                                    Problems with the mortgage servicer when you are unable to pay
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="content-l_col content-l_col-1-2">
+                            <dl class="list list__unstyled">
+                                <dt>
+                                    Consumer-identified company
+                                </dt>
+                                <dd>
+                                    Acme Mortgages
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="complaint_section complaint_what-happened">
+                <h2>
+                    What happened
+                </h2>
+                <div class="block block__bg block__flush-top block__flush-bottom complaint_block">
+                    <div class="content-l">
+                        <div class="content-l_col content-l_col-3-4">
+                            <p>
+                                Lorem ipsum dolor sit amet, numquam mentitum expetendis vim et, insolens gloriatur te vis. Mea te consulatu mnesarchum. Per duis timeam interpretaris ex. At pri illum elitr, his errem interesset ut, ut scribentur intellegebat vix. Ne eirmod tacimates erroribus sed, ad munere nominavi nec.
+                            </p>
+                            <p>
+                                Doctus adipiscing qui eu, eu sea meis dolor. Unum commune eligendi ea has, in idque consulatu sea. Ceteros recusabo accusamus per id, ei error paulo cum, id quo ubique necessitatibus. Eu vel nonumes dolores, nisl principes no per, id wisi labitur lobortis vel. Audiam feugiat assueverit est at, omittantur deterruisset vim ad, vix invidunt rationibus reprehendunt ne.
+                            </p>
+                            <dl class="list list__unstyled">
+                                <dt>
+                                    Already attempted to resolve this issue with the company?
+                                </dt>
+                                <dd>
+                                    Yes
+                                </dd>
+                                <dt>
+                                    Attachments
+                                </dt>
+                                <dd>
+                                    <a href="#not-yet">
+                                        <span class="cf-icon cf-icon-download"></span>
+                                        foreclosure-letter.pdf
+                                    </a>
+                                    (48 KB)
+                                </dd>
+                                <dd>
+                                    <a href="#not-yet">
+                                        <span class="cf-icon cf-icon-download"></span>
+                                        doe-mortgage-agreement.doc
+                                    </a>
+                                    (1.2 MB)
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="complaint_section complaint_desired-resolution">
+                <h2>
+                    Desired resolution
+                </h2>
+                <div class="block block__bg block__flush-top block__flush-bottom complaint_block">
+                    <div class="content-l">
+                        <div class="content-l_col content-l_col-3-4">
+                            <p>
+                                An eum dolor electram vituperatoribus, ei mel verterem detraxit consectetuer, nec essent fierent qualisque eu. Eu vocibus pericula has, in homero audiam ponderum vix, per vidit putant cu. Per id discere assueverit. Ut nam phaedrum patrioque. Putent praesent ullamcorper no pri, quod velit persequeris pro ad, te sit repudiare vulputate mnesarchum. Denique delectus ei est, ex mei saperet abhorreant, mea odio eros quaestio ex.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="complaint_section complaint_recipients">
+                <h2>
+                    Response recipients
+                </h2>
+                <div class="block block__bg block__flush-top block__flush-bottom complaint_block">
+                    <div class="content-l">
+                        <div class="content-l_col content-l_col-1-2">
+                            <dl class="list list__unstyled">
+                                <dt>
+                                    Submitted on behalf of
+                                </dt>
+                                <dd>
+                                    Primary consumer and someone else
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="content-l_col content-l_col-1-2">
+                            <dl class="list list__unstyled">
+                                <dt>
+                                    Who will receive updates?
+                                </dt>
+                                <dd>
+                                    Primary consumer
+                                </dd>
+                                <dd>
+                                    Additional consumer
+                                </dd>
+                                <dd>
+                                    Additional point of contact
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="complaint_section complaint_initial-response">
+                <h2>
+                    Initial response
+                </h2>
+                <div class="block block__bg block__flush-top block__flush-bottom complaint_block">
+                    <div class="content-l">
+                        <div class="content-l_col content-l_col-3-4">
+                            <dl class="list list__unstyled">
+                            <dt>
+                                Response type
+                            </dt>
+                            <dd>
+                                In progress
+                            </dd>
+                            <dt>
+                                <span id="in-progress-notification"></span>
+                                Please explain why you need additional time to respond to this complaint
+                            </dt>
+                            <dd>
+                                Perfecto definitiones vix at. Errem graeci lobortis cum an, mea ut odio dicunt, tempor debitis ad usu. Per sanctus alienum phaedrum ne, ludus molestiae sadipscing cu ius. Cum ex hendrerit gloriatur. Et choro laboramus scriptorem usu, graece lucilius appellantur nec eu. Nihil postea saperet ut mel, in eos graece possim, mentitum adolescens philosophia nam ei.
+                            </dd>
+                        </dl>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="cf-notification cf-notification__warning in-progress-notification">
+                <span class="cf-notification_icon cf-notification_icon__warning cf-icon cf-icon-error-round"></span>
+                <p class="cf-notification_text">
+                    Final response still needed
+                    <span class="short-desc">
+                        Your initial response explaining why you need more than 15 days to answer this complaint has been sent to the consumer and the CFPB. You still need to provide a final response within 60 days of the date you received the complaint.
+                    </span>
+                </p>
+            </div>
+            <section class="complaint_section complaint_response" id="complaint_response">
+                <form class="content-l response" data-selected-response="none" data-response-state="starting" action="#preview-response">
+                    <div class="content-l_col content-l_col-1" id="response_type">
+                        <div class="response_header">
+                            <label for="response_type" class="h2">
+                                What is the company’s response?
+                            </label>
+                            <a href="#" class="o-modal_trigger" id="response-modal">
+                                Response definitions
+                            </a>
+                        </div>
+                        <div class="content-l">
+                            <div class="content-l_col content-l_col-1-2">
+                                <input class="cf-input" type="radio" id="alerted" value="alerted" name="response_radios">
+                                <label class="boxed-input" for="alerted">
+                                    Alerted CFPB
+                                </label>
+                                <input class="cf-input" type="radio" id="explanation" value="explanation" name="response_radios">
+                                <label class="boxed-input" for="explanation">
+                                    Closed with explanation
+                                </label>
+                                <input class="cf-input" type="radio" id="monetary-relief" value="monetary-relief" name="response_radios">
+                                <label class="boxed-input" for="monetary-relief">
+                                    Closed with monetary relief
+                                </label>
+                                <input class="cf-input" type="radio" id="non-monetary" value="non-monetary" name="response_radios">
+                                <label class="boxed-input" for="non-monetary">
+                                    Closed with non-monetary relief
+                                </label>
+                            </div>
+                            <div class="content-l_col content-l_col-1-2">
+                                <input class="cf-input" type="radio" id="duplicate" value="duplicate" name="response_radios">
+                                <label class="boxed-input" for="duplicate">
+                                    Duplicate CFPB complaint reported
+                                </label>
+                                <input class="cf-input" type="radio" id="incorrect-company" value="incorrect-company" name="response_radios">
+                                <label class="boxed-input" for="incorrect-company">
+                                    Incorrect company
+                                </label>
+                                <input class="cf-input" type="radio" id="regulator" value="regulator" name="response_radios">
+                                <label class="boxed-input" for="regulator">
+                                    Sent to regulator
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-l_col content-l_col-3-4 form-group">
+
+                        <!-- Descriptions of each response  -->
+                        <div class="response_descriptions">
+                            <div class="response_piece" data-response="alerted">
+                                <p>
+                                    Cannot take action for reasons such as suspected fraud, pending legal matter or because the complaint was submitted by unauthorized third party
+                                </p>
+                                <p>
+                                    This is an administrative response; complaints that receive appropriate administrative responses are not published in the Consumer Complaint Database and the response will not be seen by the consumer
+                                </p>
+                            </div>
+                            <div class="response_piece" data-response="explanation">
+                                <p>
+                                    Your final responsive explanation to the consumer, indicating that you provided an explanation tailored to the individual consumer's complaint
+                                </p>
+                            </div>
+                            <div class="response_piece" data-response="monetary-relief">
+                                <p>
+                                    Your final responsive explanation to the consumer, indicating that the steps you have taken or will take include objective, measurable, and verifiable monetary relief to the consumer
+                                </p>
+                            </div>
+                            <div class="response_piece" data-response="non-monetary">
+                                <p>
+                                    Your final responsive explanation to the consumer, indicating that the steps you have taken or will take include other objective or verifiable relief to the consumer
+                                </p>
+                            </div>
+                            <div class="response_piece" data-response="duplicate">
+                                <p>
+                                    Cannot take action because the complaint is one submitted by or on behalf of the same consumer that does not describe or include any new issue, instance, or information; you must provide the original complaint number with your response
+                                </p>
+                                <p>
+                                    This is an administrative response; complaints that receive appropriate administrative responses are not published in the Consumer Complaint Database and the response will not be seen by the consumer
+                                </p>
+                            </div>
+                            <div class="response_piece" data-response="in-progress">
+                                <p>
+                                    Your interim responsive explanation to consumer and the CFPB, indicating that the complaint could not be closed within 15 calendar days and that your final responsive explanation to consumer will be provided through this portal at a later date
+                                </p>
+                            </div>
+                            <div class="response_piece" data-response="incorrect-company">
+                                <p>
+                                    Cannot take action because the complaint is not related to your company
+                                </p>
+                                <p>
+                                    This is an administrative response; complaints that receive appropriate administrative responses are not published in the Consumer Complaint Database and the response will not be seen by the consumer
+                                </p>
+                            </div>
+                            <div class="response_piece" data-response="regulator">
+                                <p>
+                                    Cannot take action because complaint is about a product or issue that needs to be routed to another regulator
+                                </p>
+                                <p>
+                                    This is an administrative response; complaints that receive appropriate administrative responses are not published in the Consumer Complaint Database and the response will not be seen by the consumer
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Why are you alerting the CFPB?  -->
+                        <div class="response_piece response_input content-l" data-response="alerted" id="alert-reason">
+                            <div class="content-l_col content-l_col-1">
+                                <label for="reason-for-alerting" class="form-label-header">
+                                    Why are you alerting the CFPB?
+                                </label>
+                            </div>
+                            <div class="content-l_col content-l_col-1-2">
+                                <input class="cf-input" type="radio" id="reason-business" name="reason-radio" value="reason-business">
+                                <label class="boxed-input" for="reason-business">
+                                    Business identity theft
+                                </label>
+                                <input class="cf-input" type="radio" id="reason-litigation" name="reason-radio" value="reason-litigation">
+                                <label class="boxed-input" for="reason-litigation">
+                                    Pending or prior litigations
+                                </label>
+                            </div>
+                            <div class="content-l_col content-l_col-1-2">
+                                <input class="cf-input" type="radio" id="reason-fraud" name="reason-radio" value="reason-fraud">
+                                <label class="boxed-input" for="reason-fraud">
+                                    Suspected fraud
+                                </label>
+                                <input class="cf-input" type="radio" id="reason-unauthorized" name="reason-radio" value="reason-unauthorized">
+                                <label class="boxed-input" for="reason-unauthorized">
+                                    Unauthorized third party
+                                </label>
+                            </div>
+                            <div class="content-l_col content-l_col-1 alert-helper" data-selected-alert="none">
+                                <p class="alert-helper_text" data-alert-reason="reason-business">
+                                    Please include a statement and attach any evidence supporting why you suspect business identity theft
+                                </p>
+                                <p class="alert-helper_text" data-alert-reason="reason-litigation">
+                                    Please attach a copy of the filed complaint with your response
+                                </p>
+                                <p class="alert-helper_text" data-alert-reason="reason-fraud">
+                                    Please include a statement and attach any evidence supporting why you suspect fraud or scams
+                                </p>
+                                <p class="alert-helper_text" data-alert-reason="reason-unauthorized">
+                                    Please include a statement supporting why you suspect the complaint was submitted by an unauthorized third party
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Please provide (alert) details  -->
+                        <div class="response_piece response_input response_input__char-limit" data-response="alerted">
+                            <label for="alert-details" class="form-label-header">
+                                Please provide details
+                            </label>
+                            <textarea id="alert-details" rows="10"></textarea>
+                        </div>
+
+                        <!--  What is the ID of the complaint this is duplicating? -->
+                        <div class="response_piece response_input" data-response="duplicate">
+                            <label for="original-complaint" class="form-label-header">
+                                What is the ID of the complaint this is duplicating?
+                            </label>
+                            <input type="text" id="original-complaint">
+                        </div>
+
+                        <!-- What is your response to this complaint?  -->
+                        <div class="response_piece response_input response_input__char-limit" data-response="explanation monetary-relief non-monetary">
+                            <label for="minimum-response" class="form-label-header">
+                                What is your response to this complaint?
+                            </label>
+                            <p>
+                                Provide a response that includes, in the minimum, the following elements:
+                            </p>
+                            <ul class="list">
+                                <li class="list_item">
+                                    Any steps taken by you in response to the complaint
+                                </li>
+                                <li class="list_item">
+                                    Any communications received from the consumer by you in response to the above steps taken
+                                </li>
+                                <li class="list_item">
+                                    Any follow up actions or planned follow up actions by you in further response to the complaint
+                                </li>
+                            </ul>
+                            <textarea id="minimum-response" rows="10"></textarea>
+                        </div>
+
+                        <!--  Monetary relief amount -->
+                        <div class="response_piece response_input" data-response="monetary-relief">
+                            <label for="monetary-relief-amount" class="form-label-header">
+                                Monetary relief amount
+                            </label>
+                            <span class="input-prefix">
+                                $
+                            </span>
+                            <input type="text" id="monetary-relief-amount">
+                        </div>
+
+                        <!-- What relief was provided?  -->
+                        <div class="response_piece response_input response_input__char-limit" data-response="non-monetary">
+                            <label for="relief-provided" class="form-label-header">
+                                What relief was provided?
+                            </label>
+                            <textarea id="relief-provided" rows="10"></textarea>
+                        </div>
+
+                        <!-- Please explain why you need additional time to respond to this complaint  -->
+                        <div class="response_piece response_input response_input__char-limit" data-response="in-progress">
+                            <label for="more-time-reason" class="form-label-header">
+                                Please explain why you need additional time to respond to this complaint
+                            </label>
+                            <textarea id="more-time-reason" rows="10"></textarea>
+                        </div>
+
+                        <!-- Please explain why this isn’t related to your company  -->
+                        <div class="response_piece response_input response_input__char-limit" data-response="incorrect-company">
+                            <label for="incorrect-reason" class="form-label-header">
+                                Please explain why this isn’t related to your company
+                            </label>
+                            <textarea id="incorrect-reason" rows="10"></textarea>
+                        </div>
+
+                        <!-- What company do you believe this complaint should go to?  -->
+                        <div class="response_piece response_input" data-response="incorrect-company">
+                            <label for="correct-company" class="form-label-header">
+                                What company do you believe this complaint should go to?
+                                <span class="form-label-helper-text">(optional)</span>
+                            </label>
+                            <input type="text" id="correct-company" class="response_input__long">
+                        </div>
+
+                        <!--  Please explain why this complaint should be redirected -->
+                        <div class="response_piece response_input response_input__char-limit" data-response="regulator">
+                            <label for="redirection-explanation" class="form-label-header">
+                                Please explain why this complaint should be redirected
+                            </label>
+                            <textarea id="redirection-explanation" rows="10"></textarea>
+                        </div>
+
+                        <!--  Name of the agency or regulator where this complaint should be sent -->
+                        <div class="response_piece response_input" data-response="regulator">
+                            <label for="regulator-name" class="form-label-header">
+                                Name of the agency or regulator where this complaint should be sent
+                            </label>
+                            <input type="text" id="regulator-name" class="response_input__long">
+                        </div>
+
+                        <!-- Upload a document  -->
+                        <div class="response_piece response_input" data-response="alerted explanation monetary-relief non-monetary in-progress incorrect-company regulator">
+                            <label for="upload" class="form-label-header">
+                                Upload a document
+                                <span class="form-label-helper-text">(optional)</span>
+                            </label>
+                            <input type="file">
+                        </div>
+
+                        <!-- Submit button  -->
+                        <div class="response_piece response_input response_input__submit" data-response="alerted explanation monetary-relief non-monetary closed duplicate in-progress incorrect-company regulator">
+                            <input type="submit" class="btn btn__super" value="Preview response">
+                        </div>
+                    </div>
+                </form>
+                <div class="content-l response-preview response-preview__closed">
+                    <div class="content-l_col content-l_col-3-4">
+                        <dl class="list list__unstyled">
+                            <dt>
+                                Response type
+                            </dt>
+                            <dd>
+                                Closed with monetary relief
+                            </dd>
+                            <dt>
+                                What is your response to this complaint?
+                            </dt>
+                            <dd>
+                                Perfecto definitiones vix at. Errem graeci lobortis cum an, mea ut odio dicunt, tempor debitis ad usu. Per sanctus alienum phaedrum ne, ludus molestiae sadipscing cu ius. Cum ex hendrerit gloriatur. Et choro laboramus scriptorem usu, graece lucilius appellantur nec eu. Nihil postea saperet ut mel, in eos graece possim, mentitum adolescens philosophia nam ei.
+                            </dd>
+                            <dt>
+                                Monetary relief amount
+                            </dt>
+                            <dd>
+                                $90
+                            </dd>
+                            <dt>
+                                Uploaded documents
+                            </dt>
+                            <dd>
+                                <a href="#not-yet">
+                                    <span class="cf-icon cf-icon-download"></span>
+                                    relief-letter.pdf
+                                </a>
+                                (99 KB)
+                            </dd>
+                        </dl>
+                        <div class="response_input response_input__submit">
+                            <a class="btn btn__super" href="complaint-detail-responded.html#complaint_public-response">
+                                Send response
+                            </a>
+                            <button class="btn btn__link edit-response">
+                                Edit response
+                            </button>
+                        </div>
+                        <p class="micro-copy u-mt15">
+                            In accordance with Section 3403(b) of the Right to Financial Privacy Act (RFPA), the CFPB certifies that, to the extent applicable, the provisions of the RFPA have been complied with by the CFPB in the collection, use, and disclosure of any financial records collected via this information system.
+                        </p>
+                    </div>
+                </div>
+                <div class="content-l response-preview response-preview__in-progress">
+                    <div class="content-l_col content-l_col-3-4">
+                        <dl class="list list__unstyled">
+                            <dt>
+                                Response type
+                            </dt>
+                            <dd>
+                                In progress
+                            </dd>
+                            <dt>
+                                Please explain why you need additional time to respond to this complaint
+                            </dt>
+                            <dd>
+                                Perfecto definitiones vix at. Errem graeci lobortis cum an, mea ut odio dicunt, tempor debitis ad usu. Per sanctus alienum phaedrum ne, ludus molestiae sadipscing cu ius. Cum ex hendrerit gloriatur. Et choro laboramus scriptorem usu, graece lucilius appellantur nec eu. Nihil postea saperet ut mel, in eos graece possim, mentitum adolescens philosophia nam ei.
+                            </dd>
+                        </dl>
+                        <div class="response_input response_input__submit">
+                            <a class="btn btn__super" href="complaint-detail-in-progress.html">
+                                Send response
+                            </a>
+                            <button class="btn btn__link edit-response">
+                                Edit response
+                            </button>
+                        </div>
+                        <p class="micro-copy u-mt15">
+                            In accordance with Section 3403(b) of the Right to Financial Privacy Act (RFPA), the CFPB certifies that, to the extent applicable, the provisions of the RFPA have been complied with by the CFPB in the collection, use, and disclosure of any financial records collected via this information system.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <aside class="content_sidebar complaint_status">
+            <div class="block block__flush-top">
+                <h2 class="header-slug">
+                    <span class="header-slug_inner">Complaint status</span>
+                </h2>
+                <dl class="list list__unstyled">
+                    <dt>
+                        Alerts
+                    </dt>
+                    <dd>
+                        <span class="cf-icon cf-icon-clock"></span>
+                        Due soon
+                    </dd>
+                    <dt>
+                        Complaint status
+                    </dt>
+                    <dd>
+                        Sent to company
+                    </dd>
+                    <dt>
+                        Sent to company
+                    </dt>
+                    <dd>
+                        06/15/2016 19:01
+                    </dd>
+                    <dt>
+                        Due date
+                    </dt>
+                    <dd>
+                        06/30/2016
+                    </dd>
+                </dl>
+            </div>
+            <div class="block">
+                <h2 class="header-slug">
+                    <span class="header-slug_inner">Actions</span>
+                </h2>
+                <ul class="list list__links list__icons">
+                    <li class="list_item">
+                        <a class="list_link icon-link icon-link__before icon-link__edit" href="#complaint_response">
+                            <span class="icon-link_text">Respond</span>
+                        </a>
+                    </li>
+                    <li class="list_item">
+                        <a class="list_link icon-link icon-link__before icon-link__print" href="#print">
+                            <span class="icon-link_text">Print</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer class="global-footer">
+    <!-- Handlebars inserts global footer here -->
+</footer>
+
+<!--
+    ============
+    BODY SCRIPTS
+    ============
+    The number of scripts here must be kept to a minimum.
+    Unless adding a significant amount of JS that is specific to a single page
+    or section of the site, all custom JS should be added to src/static/js/app.js.
+-->
+
+<script src="static/js/main.min.js"></script>
+
+</body>

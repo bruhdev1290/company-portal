@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+<head>
+
+<!--
+    ===========
+    GLOBAL META
+    ===========
+-->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+    ==================
+    PAGE-SPECIFIC META
+    ==================
+-->
+
+    <title>Enter your verification code</title>
+
+<!--
+    ======
+    STYLES
+    ======
+    The number of stylesheets here must be kept to a minimum.
+    Unless adding a significant amount of CSS that is specific to a single page
+    or section of the site, all new styles should be added to src/static/css/app.less.
+-->
+
+<!--[if lt IE 9]>      <link rel="stylesheet" href="static/css/main.ie.min.css"> <![endif]-->
+<!--[if gt IE 8]><!--> <link rel="stylesheet" href="static/css/main.min.css"> <!--<![endif]-->
+
+<!--
+    ============
+    HEAD SCRIPTS
+    ============
+    The following scripts must be included in the head. DO NOT ADD ANY MORE.
+    All other scripts should go before the closing body tag.
+    If you come across a script that makes a convincing case to be included in
+    the head, then file an issue or PR to discuss including it.
+-->
+
+<!--[if lt IE 9]>
+    <script src="static/vendor/html5shiv/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+
+    <script>
+        // Confirm availability of JS and remove no-js class from html
+        var docElement = document.documentElement;
+        docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
+    </script>
+
+</head>
+
+<body>
+
+<!--
+    =================
+    Begin page source
+    =================
+-->
+
+<main class="content">
+    <div class="content_wrapper">
+        <div class="content_main login">
+            <div class="login_logo">
+                <img src="http://www.consumerfinance.gov/static/img/logo_sm-exec.svg" alt="Consumer Financial Protection Bureau" width="356" height="75">
+            </div>
+            <div style="text-align: right; margin: 30px 0;">
+                nicholas.johnson@acmebank.com
+                <a href="#not-yet">
+                    Log Out
+                </a>
+            </div>
+            <form action="dashboard.html" class="login_form">
+                <label class="h2" for="verification-code">
+                    Enter your verification code
+                </label>
+                <p>
+                    To help keep complaint information secure, we’ve sent a verification code to you at nicholas.johnson@acmebank.com. Enter that code below to complete your login. Once you enter your verificaton code, you won’t need to enter another on this computer for 90 days.
+                </p>
+                <div style="padding-left: 200px; margin: 20px 0 50px 0;">
+                    <input class="login_verification" id="verification-code" style="border-left: 5px solid #cc0000;" type="text">
+                </div>
+                <h2>
+                    Didn’t get your verification code?
+                </h2>
+                <p>
+                    If you don’t get the email with your verification code within a few minutes, check your spam folder. If it’s not there, you can <a href="verification-resend.html">email yourself a new verification code</a>.
+                </p>
+                <p>
+                    If none of that works, please email us at <a href="mailto:CFPB_StakeholderSupport@cfpb.gov">CFPB_StakeholderSupport@cfpb.gov</a> and we’ll help.
+                </p>
+                <div style="text-align: right; border-top: 1px solid #999; margin-top: 60px; padding-top: 30px;">
+                    <input type="submit" class="btn" value="Submit verification code">
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<!--
+    ============
+    BODY SCRIPTS
+    ============
+    The number of scripts here must be kept to a minimum.
+    Unless adding a significant amount of JS that is specific to a single page
+    or section of the site, all custom JS should be added to src/static/js/app.js.
+-->
+
+<script src="static/js/main.min.js"></script>
+
+</body>

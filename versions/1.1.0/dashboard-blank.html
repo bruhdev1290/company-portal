@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+<head>
+
+<!--
+    ===========
+    GLOBAL META
+    ===========
+-->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+    ==================
+    PAGE-SPECIFIC META
+    ==================
+-->
+
+    <title>Dashboard</title>
+
+<!--
+    ======
+    STYLES
+    ======
+    The number of stylesheets here must be kept to a minimum.
+    Unless adding a significant amount of CSS that is specific to a single page
+    or section of the site, all new styles should be added to src/static/css/app.less.
+-->
+
+<!--[if lt IE 9]>      <link rel="stylesheet" href="static/css/main.ie.min.css"> <![endif]-->
+<!--[if gt IE 8]><!--> <link rel="stylesheet" href="static/css/main.min.css"> <!--<![endif]-->
+
+<!--
+    ============
+    HEAD SCRIPTS
+    ============
+    The following scripts must be included in the head. DO NOT ADD ANY MORE.
+    All other scripts should go before the closing body tag.
+    If you come across a script that makes a convincing case to be included in
+    the head, then file an issue or PR to discuss including it.
+-->
+
+<!--[if lt IE 9]>
+    <script src="static/vendor/html5shiv/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+
+    <script>
+        // Confirm availability of JS and remove no-js class from html
+        var docElement = document.documentElement;
+        docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
+    </script>
+
+</head>
+
+<body data-active-page="dashboard">
+
+<!--
+    =================
+    Begin page source
+    =================
+-->
+
+<header class="global-header">
+    <!-- Handlebars inserts global header here -->
+</header>
+
+<main class="content">
+    <div class="content_wrapper">
+        <div class="content_main">
+            <div class="block block__bg block__borders block__flush-top dashboard_complaints">
+                <h2 class="h1">
+                    Complaints
+                </h2>
+                <div class="content-l">
+                    <div class="content-l_col content-l_col-1-3">
+                        <div class="m-card m-card__active">
+                            <h3 class="h2 m-card_heading">
+                                0 active
+                            </h3>
+                            <p class="m-card_body">
+                                Due in under 15 days
+                            </p>
+                            <p class="m-card_body">
+                                <a href="complaints-active.html">
+                                    View active complaints
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="content-l_col content-l_col-1-3">
+                        <div class="m-card m-card__past-due">
+                            <h3 class="h2 m-card_heading">
+                                0 past due
+                            </h3>
+                            <p class="m-card_body">
+                                Due immediately
+                            </p>
+                            <p class="m-card_body">
+                                <a href="complaints-active.html?alert=past-due">
+                                    View past due complaints
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="content-l_col content-l_col-1-3">
+                        <div class="m-card m-card__due-soon">
+                            <h3 class="h2 m-card_heading">
+                                0 due soon
+                            </h3>
+                            <p class="m-card_body">
+                                Due in under 48 hours
+                            </p>
+                            <p class="m-card_body">
+                                <a href="complaints-active.html?alert=due-soon">
+                                    View complaints due soon
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="content-l_col content-l_col-1-3">
+                        <div class="m-card m-card__unread">
+                            <h3 class="h2 m-card_heading">
+                                0 unread
+                            </h3>
+                            <p class="m-card_body">
+                                Due in under 15 days
+                            </p>
+                            <p class="m-card_body">
+                                <a href="complaints-active.html?alert=unread">
+                                    View unread complaints
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="content-l_col content-l_col-1-3">
+                        <div class="m-card m-card__more-info">
+                            <h3 class="h2 m-card_heading">
+                                0 needs more info
+                            </h3>
+                            <p class="m-card_body">
+                                Due in under 15 days
+                            </p>
+                            <p class="m-card_body">
+                                <a href="complaints-active.html?alert=under-review">
+                                    View complaints needing more info
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="content-l_col content-l_col-1-3">
+                        <div class="m-card m-card__in-progress">
+                            <h3 class="h2 m-card_heading">
+                                0 in progress
+                            </h3>
+                            <p class="m-card_body">
+                                Due in under 60 days
+                            </p>
+                            <p class="m-card_body">
+                                <a href="complaints-active.html?alert=in-progress">
+                                    View in-progress complaints
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-l">
+                <div class="content-l_col content-l_col-2-3">
+                    <h2>Open support tickets</h2>
+                    <p>
+                        You have no open support tickets. You can create a new support ticket from the <a href="support.html">support page</a>.
+                    </p>
+                    <h2>Latest news</h2>
+                    <h3 class="h4">
+                        <a href="news-article.html">
+                            New Column in Company Portal Archive Tab and Data Export
+                        </a>
+                    </h3>
+                    <p class="date">
+                        <span class="datetime">
+                            <time class="datetime_date">
+                                JUN 2, 2016
+                            </time>
+                        </span>
+                    </p>
+                    <p>
+                        As part of our continued effort to make the CFPB Company Portal more useful for companies, CFPB's Office of Consumer Response is enhancing the portal to provide companies with the identification number assigned to complaints published in the Consumer Complaint Database. New columns titled…
+                    </p>
+                    <h3 class="h4">
+                        <a href="news-article.html">
+                            "Submit a Ticket" Option for Debt Collection Complaints
+                        </a>
+                    </h3>
+                    <p class="date">
+                        <span class="datetime">
+                            <time class="datetime_date">
+                                MAY 24, 2016
+                            </time>
+                        </span>
+                    </p>
+                    <p>
+                        Companies are encouraged to use the "Submit a Ticket" option on the Help Tab of the Company Portal to request additional information before closing a debt collection complaint that does not include adequate information to verify the commercial relationship with the complaining consumer. CFPB's…
+                    </p>
+                    <p>
+                        <a class="jump-link jump-link__underline" href="news.html">
+                            <span class="jump-link_text">
+                                View all news articles
+                            </span>
+                        </a>
+                    </p>
+                </div>
+                <aside class="o-sidebar-breakout_col content-l_col content-l_col-1-3">
+                    <h2 class="header-slug">
+                        <span class="header-slug_inner">
+                            Support tools
+                        </span>
+                    </h2>
+                    <div class="o-sidebar-breakout_img-container">
+                        <div class="o-sidebar-breakout_img" style="background-image:url( static/img/support-breakout.png )"></div>
+                    </div>
+                    <div class="o-sidebar-breakout_text-container">
+                        <h4 class="o-sidebar-breakout_text-heading">
+                            Company Portal manual
+                        </h4>
+                        <p>
+                            The Company Portal manual is a comprehensive guide to using the company Portal to view and respond to complaints your company has received.
+                        </p>
+                    </div>
+                    <p>
+                        <a class="list_link" href="#not-yet">
+                            Download manual <span class="cf-icon cf-icon-download"></span>
+                        </a>
+                    </p>
+                </aside>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="global-footer">
+    <!-- Handlebars inserts global footer here -->
+</footer>
+
+<!--
+    ============
+    BODY SCRIPTS
+    ============
+    The number of scripts here must be kept to a minimum.
+    Unless adding a significant amount of JS that is specific to a single page
+    or section of the site, all custom JS should be added to src/static/js/app.js.
+-->
+
+<script src="static/js/main.min.js"></script>
+
+</body>

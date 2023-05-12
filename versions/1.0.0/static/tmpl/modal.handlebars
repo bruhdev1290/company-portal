@@ -1,0 +1,24 @@
+<div class="o-modal" style="opacity: 1;">
+    <div class="o-modal_bg">&nbsp;</div>
+    <div class="o-modal_offset">
+        <div class="o-modal_content">
+            <div class="o-modal_inner">
+                <p class="o-modal_close">
+                    <a href="#">
+                        Close
+                        <span class="cf-icon cf-icon-delete-round"></span>
+                    </a>
+                </p>
+                <h1 class="h3">{{header}}</h1>
+                {{{body}}}
+            </div>
+            {{#if button}}
+                <div class="o-modal_actionbar" >
+                    <a id="save-and-continue-with-login" class="btn save-with-login save-type" href="#">
+                        {{button}}
+                    </a>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+<head>
+
+<!--
+    ===========
+    GLOBAL META
+    ===========
+-->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+    ==================
+    PAGE-SPECIFIC META
+    ==================
+-->
+
+    <title>Manage your account</title>
+
+<!--
+    ======
+    STYLES
+    ======
+    The number of stylesheets here must be kept to a minimum.
+    Unless adding a significant amount of CSS that is specific to a single page
+    or section of the site, all new styles should be added to src/static/css/app.less.
+-->
+
+<!--[if lt IE 9]>      <link rel="stylesheet" href="static/css/main.ie.min.css"> <![endif]-->
+<!--[if gt IE 8]><!--> <link rel="stylesheet" href="static/css/main.min.css"> <!--<![endif]-->
+
+<!--
+    ============
+    HEAD SCRIPTS
+    ============
+    The following scripts must be included in the head. DO NOT ADD ANY MORE.
+    All other scripts should go before the closing body tag.
+    If you come across a script that makes a convincing case to be included in
+    the head, then file an issue or PR to discuss including it.
+-->
+
+<!--[if lt IE 9]>
+    <script src="static/vendor/html5shiv/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+
+    <script>
+        // Confirm availability of JS and remove no-js class from html
+        var docElement = document.documentElement;
+        docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
+    </script>
+
+</head>
+
+<body>
+
+<!--
+    =================
+    Begin page source
+    =================
+-->
+
+<header class="global-header">
+    <!-- Handlebars inserts global header here -->
+</header>
+
+<main class="content content__2-1 content__bleedbar user">
+    <div class="content_wrapper">
+        <div class="content_main complaint_details">
+            <h1 class="u-mb30">
+                Manage your account
+            </h1>
+            <form id="user_account" action="#update-account" data-updated="false">
+                <div class="cf-notification cf-notification__success">
+                    <span class="cf-notification_icon cf-notification_icon__success cf-icon cf-icon-approved-round"></span>
+                    <p class="cf-notification_text">
+                        <span class="h4">
+                            Account updated
+                        </span>
+                    </p>
+                </div>
+                <section class="complaint_section user_contact">
+                    <h2>
+                        Contact information
+                    </h2>
+                    <div class="block block__bg block__flush-top block__flush-bottom complaint_block">
+                        <div class="content-l">
+                            <div class="form-group">
+                                <div class="content-l_col content-l_col-1-2">
+                                    <label for="user_first" class="form-label-header">
+                                        First name
+                                    </label>
+                                    <input type="text" class="response_input__long" id="user_first" value="Nicholas">
+                                </div>
+                                <div class="content-l_col content-l_col-1-2">
+                                    <label for="user_last" class="form-label-header">
+                                        Last name
+                                    </label>
+                                    <input type="text" class="response_input__long" id="user_last" value="Johnson">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="content-l_col content-l_col-1-2">
+                                    <label for="user_title" class="form-label-header">
+                                        Title
+                                    </label>
+                                    <input type="text" class="response_input__long" id="user_title" value="Investigator">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="content-l_col content-l_col-1-2">
+                                    <label for="user_phone" class="form-label-header">
+                                        Phone number
+                                    </label>
+                                    <input type="text" class="response_input__long" id="user_phone" value="(555) 321-3181">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="content-l_col content-l_col-1-2">
+                                    <label for="user_email" class="form-label-header">
+                                        Email
+                                    </label>
+                                    <input type="text" class="response_input__long" id="user_email" value="nicholas.johnson@acmebank.com">
+                                    <p class="micro-copy u-mt15">
+                                        Changing your email address will also change your username
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="complaint_section user_account">
+                    <h2>
+                        Account information
+                    </h2>
+                    <div class="block block__bg block__flush-top block__flush-bottom complaint_block">
+                        <div class="content-l">
+                            <div class="form-group">
+                                <div class="content-l_col content-l_col-1-2">
+                                    <label for="user_username" class="form-label-header">
+                                        Username
+                                    </label>
+                                    <input type="text" class="response_input__long" id="user_username" value="nicholas.johnson@acmebank.com" disabled>
+                                    <p class="micro-copy u-mt15">
+                                        Change your username by changing your email address above
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="content-l_col content-l_col-1-2">
+                                    <label class="form-label-header">
+                                        Password
+                                    </label>
+                                    <a href="#not-yet" class="btn">
+                                        Change your password
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="complaint_section user_communications">
+                    <h2>
+                        Communication preferences
+                    </h2>
+                    <div class="block block__bg block__flush-top block__flush-bottom complaint_block">
+                        <label for="user_communications" class="form-label-header u-mb30">
+                            Send me emails with information about:
+                        </label>
+                        <div class="content-l">
+                            <div class="content-l_col content-l_col-1-2">
+                                <input class="cf-input" type="checkbox" id="policies" value="policies" name="comms_options" checked>
+                                <label class="boxed-input" for="policies">
+                                    New policies or regulation changes
+                                </label>
+                            </div>
+                            <div class="content-l_col content-l_col-1-2">
+                                <input class="cf-input" type="checkbox" id="updates" value="updates" name="comms_options" checked>
+                                <label class="boxed-input" for="updates">
+                                    Portal updates
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="complaint_section user_digests">
+                    <h2>
+                        Complaint notifications
+                    </h2>
+                    <div class="block block__bg block__flush-top block__flush-bottom complaint_block">
+                        <label for="user_communications" class="form-label-header u-mb30">
+                            Send me:
+                        </label>
+                        <div class="content-l">
+                            <div class="content-l_col content-l_col-1-2">
+                                <input class="cf-input" type="checkbox" id="daily-digest" value="daily-digest" name="comms_options" checked>
+                                <label class="boxed-input" for="daily-digest">
+                                    Daily digests
+                                    <span class="micro-copy">
+                                        Daily email summarizing new complaints and information requests submitted the previous day
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="content-l_col content-l_col-1-2">
+                                <input class="cf-input" type="checkbox" id="reminders" value="reminders" name="comms_options" checked>
+                                <label class="boxed-input" for="reminders">
+                                    Reminders
+                                    <span class="micro-copy">
+                                        Email summarizing when an action is due in the next 48 hours on a complaint or information request
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <button class="btn btn__super u-mt45" type="submit">
+                    Update account
+                </button>
+            </form>
+        </div>
+        <aside class="content_sidebar">
+            <div class="block block__flush-top">
+                <h2 class="header-slug">
+                    <span class="header-slug_inner">Company information</span>
+                </h2>
+                <p>
+                    AcmeBank<br>
+                    100 Acme Way<br>
+                    Acmetown, MA 12345
+                </p>
+            </div>
+            <div class="block">
+                <h2 class="header-slug">
+                    <span class="header-slug_inner">Point of contact</span>
+                </h2>
+                <p>
+                    Yvone Hout<br>
+                    (555) 321-3000<br>
+                    <a href="mailto:yvone.hout@acmebank.com">
+                        yvone.hout@acmebank.com
+                    </a>
+                </p>
+            </div>
+            <div class="block">
+                <h2 class="header-slug">
+                    <span class="header-slug_inner">Products and permissions</span>
+                </h2>
+                <p>
+                    You can see complaints about these products:
+                </p>
+                <ul class="list">
+                    <li class="list_item">
+                        Checking or savings account
+                    </li>
+                    <li class="list_item">
+                        Credit card or prepaid card
+                    </li>
+                    <li class="list_item">
+                        Credit reporting
+                    </li>
+                    <li class="list_item">
+                        Debt collection
+                    </li>
+                    <li class="list_item">
+                        Money transfer or money service
+                    </li>
+                    <li class="list_item">
+                        Mortgage
+                    </li>
+                    <li class="list_item">
+                        Payday, store, or other loan
+                    </li>
+                    <li class="list_item">
+                        Student loan
+                    </li>
+                    <li class="list_item">
+                        Vehicle loan or lease
+                    </li>
+                </ul>
+                <dl class="list list__unstyled">
+                    <dt>
+                        Allowed to export complaints?
+                    </dt>
+                    <dd>
+                        Yes
+                    </dd>
+                </dl>
+                <p>
+                    To change your products and permissions, talk to your company’s point of contact, listed above.
+                </p>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer class="global-footer">
+    <!-- Handlebars inserts global footer here -->
+</footer>
+
+<!--
+    ============
+    BODY SCRIPTS
+    ============
+    The number of scripts here must be kept to a minimum.
+    Unless adding a significant amount of JS that is specific to a single page
+    or section of the site, all custom JS should be added to src/static/js/app.js.
+-->
+
+<script src="static/js/main.min.js"></script>
+
+</body>

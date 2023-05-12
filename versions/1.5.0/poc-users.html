@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+<head>
+
+<!--
+    ===========
+    GLOBAL META
+    ===========
+-->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+    ==================
+    PAGE-SPECIFIC META
+    ==================
+-->
+
+    <title>Manage users</title>
+
+<!--
+    ======
+    STYLES
+    ======
+    The number of stylesheets here must be kept to a minimum.
+    Unless adding a significant amount of CSS that is specific to a single page
+    or section of the site, all new styles should be added to src/static/css/app.less.
+-->
+
+<!--[if lt IE 9]>      <link rel="stylesheet" href="static/css/main.ie.min.css"> <![endif]-->
+<!--[if gt IE 8]><!--> <link rel="stylesheet" href="static/css/main.min.css"> <!--<![endif]-->
+
+<!--
+    ============
+    HEAD SCRIPTS
+    ============
+    The following scripts must be included in the head. DO NOT ADD ANY MORE.
+    All other scripts should go before the closing body tag.
+    If you come across a script that makes a convincing case to be included in
+    the head, then file an issue or PR to discuss including it.
+-->
+
+<!--[if lt IE 9]>
+    <script src="static/vendor/html5shiv/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+
+    <script>
+        // Confirm availability of JS and remove no-js class from html
+        var docElement = document.documentElement;
+        docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
+    </script>
+
+</head>
+
+<body>
+
+<!--
+    =================
+    Begin page source
+    =================
+-->
+
+<header class="global-header">
+    <!-- Handlebars inserts global header here -->
+</header>
+
+<main class="content">
+    <div class="content_wrapper">
+        <div class="content_main manage-users">
+            <h1>
+                Manage users
+            </h1>
+            <div class="expandable expandable__padded expandable__borders">
+                <a class="expandable_target expandable_header"
+                   href="#expandable-padded-content">
+                    <span class="expandable_label expandable_header-left">
+                        Filter and search users
+                    </span>
+                    <span class="expandable_link expandable_header-right">
+                        <span class="expandable_cue-open">
+                            Show
+                            <span class="cf-icon cf-icon-plus-round"></span>
+                        </span>
+                        <span class="expandable_cue-close">
+                            Hide
+                            <span class="cf-icon cf-icon-minus-round"></span>
+                        </span>
+                    </span>
+                </a>
+                <div class="expandable_content" id="expandable-padded-content">
+                    <form action="#not-yet" class="filter">
+                        <div class="content-l filter-row">
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_name">
+                                    Name
+                                </label>
+                                <input id="filter_name" type="text">
+                            </div>
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_email">
+                                    Email
+                                </label>
+                                <input id="filter_email" type="text">
+                            </div>
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_role">
+                                    Role
+                                </label>
+                                 <input id="filter_role" type="text">
+                            </div>
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_products">
+                                    Products
+                                </label>
+                                 <input id="filter_products" type="text" placeholder="Choose any" disabled>
+                            </div>
+                        </div>
+                        <div class="content-l filter-row">
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_login">
+                                    Last login
+                                </label>
+                                <div class="content-l">
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <label for="login-start">
+                                            From
+                                        </label>
+                                        <input id="login-start" type="text" placeholder="MM/DD/YYYY">
+                                    </div>
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <label for="login-end">
+                                            To
+                                        </label>
+                                        <input id="login-end" type="text" placeholder="MM/DD/YYYY">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_status">
+                                    Status
+                                </label>
+                                <div class="content-l">
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <input class="cf-input" type="checkbox" value="status-active" id="status-active" name="status-active">
+                                        <label for="status-active">
+                                            Active
+                                        </label>
+                                    </div>
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <input class="cf-input" type="checkbox" value="status-inactive" id="status-inactive" name="status-inactive">
+                                        <label for="status-inactive">
+                                            Inactive
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-l">
+                            <div class="content-l_col content-l_col-1">
+                                <input class="btn" type="submit" value="Apply filters">
+                                <a class="btn btn__warning btn__link" href="#not-yet">
+                                    Clear filters
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="manage-users_actions">
+                <a href="poc-new-user.html" class="btn btn__super">
+                    Create new user
+                </a>
+                <button class="btn btn__disabled btn__secondary manage-users_change-status" type="button">
+                    Switch selected statuses
+                </button>
+            </div>
+            <table class="table__sortable manage-users_table">
+                <thead>
+                    <tr>
+                        <th class="column-checkbox">
+
+                        </th>
+                        <th class="column-name">
+                            <button class="sortable">
+                                Name
+                            </button>
+                        </th>
+                        <th class="column-email">
+                            <button class="sortable">
+                                Email
+                            </button>
+                        </th>
+                        <th class="column-role">
+                            <button class="sortable">
+                                Role
+                            </button>
+                        </th>
+                        <th class="column-products">
+                            <button class="sortable">
+                                Products
+                            </button>
+                        </th>
+                        <th class="column-login">
+                            <button class="sortable sortable__start-down">
+                                Last login
+                            </button>
+                        </th>
+                        <th class="column-status">
+                            <button class="sortable">
+                                Status
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input class="cf-input" type="checkbox" id="row1">
+                            <label for="row1">
+                                <span class="u-visually-hidden">
+                                    Select
+                                </span>
+                            </label>
+                        </td>
+                        <td>
+                            <a href="poc-new-user.html?edit=true">
+                                Stefan Chaney
+                            </a>
+                        </td>
+                        <td>
+                            stefan.chaney@acmebank.com
+                        </td>
+                        <td>
+                            Investigator
+                        </td>
+                        <td>
+                            Checking or savings account; credit card or prepaid card; credit reporting; debt collection; money transfer or money service; mortgage; payday, store, or other loan; student loan; vehicle loan or lease
+                        </td>
+                        <td>
+                            08/12/2016 14:32
+                        </td>
+                        <td>
+                            Active
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="cf-input" type="checkbox" id="row2">
+                            <label for="row2">
+                                <span class="u-visually-hidden">
+                                    Select
+                                </span>
+                            </label>
+                        </td>
+                        <td>
+                            <a href="poc-new-user.html?edit=true">
+                                Neida Sheffield
+                            </a>
+                        </td>
+                        <td>
+                            neida.sheffield@acmebank.com
+                        </td>
+                        <td>
+                            Investigator
+                        </td>
+                        <td>
+                            Checking or savings account; credit card or prepaid card; credit reporting; debt collection; money transfer or money service; mortgage; payday, store, or other loan; student loan; vehicle loan or lease
+                        </td>
+                        <td>
+                            08/12/2016 13:50
+                        </td>
+                        <td>
+                            Active
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="cf-input" type="checkbox" id="row3">
+                            <label for="row3">
+                                <span class="u-visually-hidden">
+                                    Select
+                                </span>
+                            </label>
+                        </td>
+                        <td>
+                            <a href="poc-new-user.html?edit=true">
+                                Ike Wang
+                            </a>
+                        </td>
+                        <td>
+                            ike.wang@acmebank.com
+                        </td>
+                        <td>
+                            Investigator
+                        </td>
+                        <td>
+                            Checking or savings account; credit card or prepaid card; credit reporting; debt collection; money transfer or money service; mortgage; payday, store, or other loan; student loan; vehicle loan or lease
+                        </td>
+                        <td>
+                            08/12/2016 09:55
+                        </td>
+                        <td>
+                            Active
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="cf-input" type="checkbox" id="row4">
+                            <label for="row4">
+                                <span class="u-visually-hidden">
+                                    Select
+                                </span>
+                            </label>
+                        </td>
+                        <td>
+                            <a href="poc-new-user.html?edit=true">
+                                Jewell Guitierrez
+                            </a>
+                        </td>
+                        <td>
+                            jewell.guitierrez@acmebank.com
+                        </td>
+                        <td>
+                            Investigator
+                        </td>
+                        <td>
+                            Checking or savings account; credit card or prepaid card; credit reporting; debt collection; money transfer or money service; mortgage; payday, store, or other loan; student loan; vehicle loan or lease
+                        </td>
+                        <td>
+                            08/12/2016 08:01
+                        </td>
+                        <td>
+                            Active
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="cf-input" type="checkbox" id="row5">
+                            <label for="row5">
+                                <span class="u-visually-hidden">
+                                    Select
+                                </span>
+                            </label>
+                        </td>
+                        <td>
+                            <a href="poc-new-user.html?edit=true">
+                                Bertha McCluskey
+                            </a>
+                        </td>
+                        <td>
+                            bertha.mccluskey@acmebank.com
+                        </td>
+                        <td>
+                            Investigator
+                        </td>
+                        <td>
+                            Checking or savings account; credit card or prepaid card; credit reporting; debt collection; money transfer or money service; mortgage; payday, store, or other loan; student loan; vehicle loan or lease
+                        </td>
+                        <td>
+                            08/11/2016 16:06
+                        </td>
+                        <td>
+                            Active
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="cf-input" type="checkbox" id="row6">
+                            <label for="row6">
+                                <span class="u-visually-hidden">
+                                    Select
+                                </span>
+                            </label>
+                        </td>
+                        <td>
+                            <a href="poc-new-user.html?edit=true">
+                                Yvone Hout
+                            </a>
+                        </td>
+                        <td>
+                            yvone.hout@acmebank.com
+                        </td>
+                        <td>
+                            Investigator
+                        </td>
+                        <td>
+                            Checking or savings account; credit card or prepaid card; credit reporting; debt collection; money transfer or money service; mortgage; payday, store, or other loan; student loan; vehicle loan or lease
+                        </td>
+                        <td>
+                            08/11/2016 13:33
+                        </td>
+                        <td>
+                            Active
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="cf-input" type="checkbox" id="row7">
+                            <label for="row7">
+                                <span class="u-visually-hidden">
+                                    Select
+                                </span>
+                            </label>
+                        </td>
+                        <td>
+                            <a href="poc-new-user.html?edit=true">
+                                Odis Kramer
+                            </a>
+                        </td>
+                        <td>
+                            odis.kramer@acmebank.com
+                        </td>
+                        <td>
+                            Investigator
+                        </td>
+                        <td>
+                            Checking or savings account; credit card or prepaid card; credit reporting; debt collection; money transfer or money service; mortgage; payday, store, or other loan; student loan; vehicle loan or lease
+                        </td>
+                        <td>
+                            08/11/2016 10:00
+                        </td>
+                        <td>
+                            Active
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="cf-input" type="checkbox" id="row8">
+                            <label for="row8">
+                                <span class="u-visually-hidden">
+                                    Select
+                                </span>
+                            </label>
+                        </td>
+                        <td>
+                            <a href="poc-new-user.html?edit=true">
+                                Adrianna Arthurs
+                            </a>
+                        </td>
+                        <td>
+                            adrianna.arthurs@acmebank.com
+                        </td>
+                        <td>
+                            Investigator
+                        </td>
+                        <td>
+                            Checking or savings account; credit card or prepaid card; credit reporting; debt collection; money transfer or money service; mortgage; payday, store, or other loan; student loan; vehicle loan or lease
+                        </td>
+                        <td>
+                            08/11/2016 07:59
+                        </td>
+                        <td>
+                            Active
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="cf-input" type="checkbox" id="row9">
+                            <label for="row9">
+                                <span class="u-visually-hidden">
+                                    Select
+                                </span>
+                            </label>
+                        </td>
+                        <td>
+                            <a href="poc-new-user.html?edit=true">
+                                Rubin Fontana
+                            </a>
+                        </td>
+                        <td>
+                            rubin.fontana@acmebank.com
+                        </td>
+                        <td>
+                            Investigator
+                        </td>
+                        <td>
+                            Checking or savings account; credit card or prepaid card; credit reporting; debt collection; money transfer or money service; mortgage; payday, store, or other loan; student loan; vehicle loan or lease
+                        </td>
+                        <td>
+                            08/10/2016 09:00
+                        </td>
+                        <td>
+                            Active
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="cf-input" type="checkbox" id="row10">
+                            <label for="row10">
+                                <span class="u-visually-hidden">
+                                    Select
+                                </span>
+                            </label>
+                        </td>
+                        <td>
+                            <a href="poc-new-user.html?edit=true">
+                                Tina Seldon-Burke
+                            </a>
+                        </td>
+                        <td>
+                            tina.seldon@acmebank.com
+                        </td>
+                        <td>
+                            Investigator
+                        </td>
+                        <td>
+                            Checking or savings account; credit card or prepaid card; credit reporting; debt collection; money transfer or money service; mortgage; payday, store, or other loan; student loan; vehicle loan or lease
+                        </td>
+                        <td>
+                            02/24/2016 09:00
+                        </td>
+                        <td>
+                            Inactive
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <nav class="pagination">
+                <a class="btn btn__super btn__disabled pagination_prev"
+                href="#not-yet">
+                    <span class="btn_icon__left cf-icon cf-icon-left"></span>
+                        Previous
+                </a>
+                <a class="btn btn__super pagination_next"
+                href="#not-yet">
+                    Next
+                    <span class="btn_icon__right cf-icon cf-icon-right"></span>
+                </a>
+                <form class="pagination_form" action="#not-yet">
+                    <label class="pagination_label"
+                    for="pagination_current-page">
+                        Page
+                        <span class="u-visually-hidden">
+                            number out of 2 total pages
+                        </span>
+                    </label>
+                    <input
+                    class="pagination_current-page"
+                    id="pagination_current-page"
+                    name="pagination_current-page"
+                    type="number" min="1" max="2"
+                    value="1">
+                        <span class="pagination_label">
+                            <span aria-hidden="true">
+                                of 2
+                            </span>
+                        </span>
+                    <button class="btn btn__link pagination_submit"
+                    id="pagination_submit"
+                    type="submit">
+                        Go
+                    </button>
+                </form>
+            </nav>
+        </div>
+    </div>
+</main>
+
+<footer class="global-footer">
+    <!-- Handlebars inserts global footer here -->
+</footer>
+
+<!--
+    ============
+    BODY SCRIPTS
+    ============
+    The number of scripts here must be kept to a minimum.
+    Unless adding a significant amount of JS that is specific to a single page
+    or section of the site, all custom JS should be added to src/static/js/app.js.
+-->
+
+<script src="static/js/main.min.js"></script>
+
+</body>

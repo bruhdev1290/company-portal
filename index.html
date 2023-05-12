@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+  <!--<![endif]-->
+
+  <head>
+    <!--
+    ===========
+    GLOBAL META
+    ===========
+-->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--
+    ==================
+    PAGE-SPECIFIC META
+    ==================
+-->
+
+    <title>Login</title>
+
+    <!--
+    ======
+    STYLES
+    ======
+    The number of stylesheets here must be kept to a minimum.
+    Unless adding a significant amount of CSS that is specific to a single page
+    or section of the site, all new styles should be added to src/static/css/app.less.
+-->
+
+    <!--[if lt IE 9]>
+      <link rel="stylesheet" href="static/css/main.ie.min.css" />
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="static/css/main.min.css" />
+    <!--<![endif]-->
+
+    <!--
+    ============
+    HEAD SCRIPTS
+    ============
+    The following scripts must be included in the head. DO NOT ADD ANY MORE.
+    All other scripts should go before the closing body tag.
+    If you come across a script that makes a convincing case to be included in
+    the head, then file an issue or PR to discuss including it.
+-->
+
+    <!--[if lt IE 9]>
+      <script src="static/vendor/html5shiv/html5shiv-printshiv.min.js"></script>
+    <![endif]-->
+
+    <script>
+      // Confirm availability of JS and remove no-js class from html
+      var docElement = document.documentElement;
+      docElement.className = docElement.className.replace(
+        /(^|\s)no-js(\s|$)/,
+        "$1$2"
+      );
+    </script>
+  </head>
+
+  <body>
+    <!--
+    =================
+    Begin page source
+    =================
+-->
+
+    <main class="content">
+      <div class="content_wrapper">
+        <div class="content_main login">
+          <div class="login_logo">
+            <img
+              src="static/img/logo_sm-exec.png"
+              alt="Consumer Financial Protection Bureau"
+              width="356"
+              height="75"
+            />
+          </div>
+          <div class="login_message">
+            <h1 class="h3">Log in to the Company Portal</h1>
+            <p>
+              You will need to <a href="#not-yet">reset your password</a> if:
+            </p>
+            <ul>
+              <li>You haven’t set your password yet</li>
+              <li>You forgot your password</li>
+              <li>
+                You haven’t reset your password since the updated Company Portal
+                launched on March 13, 2017
+              </li>
+            </ul>
+          </div>
+          <form action="verification.html" class="login_form">
+            <div class="login_input-container">
+              <span class="cf-icon cf-icon-user cf-icon__lg"></span>
+              <input class="login_input" type="text" placeholder="Username" />
+            </div>
+            <div class="login_input-container">
+              <span class="cf-icon cf-icon-lock cf-icon__lg"></span>
+              <input class="login_input" type="text" placeholder="Password" />
+            </div>
+            <div class="login_input-container">
+              <input
+                class="login_input btn btn__super"
+                type="submit"
+                value="Log in"
+              />
+            </div>
+            <div class="login_input-container">
+              <a href="#not-yet"> Forgot your password? </a>
+            </div>
+          </form>
+          <p class="login_disclaimer">
+            This is a Consumer Financial Protection Bureau (CFPB) information
+            system. The CFPB is an independent agency of the United States
+            Government. CFPB information systems are provided for the processing
+            of official information only. Unauthorized or improper use of this
+            system may result in administrative action, as well as civil and
+            criminal penalties. Because this is a CFPB information system, you
+            have no reasonable expectation of privacy regarding any
+            communication or data transiting or stored on this information
+            system. All data contained on CFPB information systems is owned by
+            CFPB and your use of the CFPB information system serves as your
+            consent to your usage being monitored, intercepted, recorded, read,
+            copied, captured or otherwise audited in any manner, by authorized
+            personnel, including but not limited to employees, contractors,
+            and/or agents of the United States Government.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!--
+    ============
+    BODY SCRIPTS
+    ============
+    The number of scripts here must be kept to a minimum.
+    Unless adding a significant amount of JS that is specific to a single page
+    or section of the site, all custom JS should be added to src/static/js/app.js.
+-->
+
+    <script src="static/js/main.min.js"></script>
+  </body>
+</html>

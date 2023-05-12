@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+<head>
+
+<!--
+    ===========
+    GLOBAL META
+    ===========
+-->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+    ==================
+    PAGE-SPECIFIC META
+    ==================
+-->
+
+    <title>Submit a ticket</title>
+
+<!--
+    ======
+    STYLES
+    ======
+    The number of stylesheets here must be kept to a minimum.
+    Unless adding a significant amount of CSS that is specific to a single page
+    or section of the site, all new styles should be added to src/static/css/app.less.
+-->
+
+<!--[if lt IE 9]>      <link rel="stylesheet" href="static/css/main.ie.min.css"> <![endif]-->
+<!--[if gt IE 8]><!--> <link rel="stylesheet" href="static/css/main.min.css"> <!--<![endif]-->
+
+<!--
+    ============
+    HEAD SCRIPTS
+    ============
+    The following scripts must be included in the head. DO NOT ADD ANY MORE.
+    All other scripts should go before the closing body tag.
+    If you come across a script that makes a convincing case to be included in
+    the head, then file an issue or PR to discuss including it.
+-->
+
+<!--[if lt IE 9]>
+    <script src="static/vendor/html5shiv/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+
+    <script>
+        // Confirm availability of JS and remove no-js class from html
+        var docElement = document.documentElement;
+        docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
+    </script>
+
+</head>
+
+<body data-active-page="support">
+
+<!--
+    =================
+    Begin page source
+    =================
+-->
+
+<header class="global-header">
+    <!-- Handlebars inserts global header here -->
+</header>
+
+<main class="content content__2-1 content__bleedbar submit-ticket">
+    <div class="content_wrapper">
+        <div class="content_main">
+            <h1>
+                Submit a ticket
+            </h1>
+            <form class="content-l ticket" action="support.html#ticket-submitted" data-selected-issue="none">
+
+                <!-- Issue  -->
+                <div class="content-l_col content-l_col-1" id="issue-type">
+                    <h2 class="u-mt45">
+                        What kind of issue are you having?
+                    </h2>
+                    <div class="content-l" id="issue">
+                        <div class="content-l_col content-l_col-1-2">
+                            <input class="cf-input" type="radio" id="issue_complaint" value="issue_complaint" name="response_radios">
+                            <label class="boxed-input" for="issue_complaint">
+                                Complaint-specific issue
+                            </label>
+                            <input class="cf-input" type="radio" id="issue_technical" value="issue_technical" name="response_radios">
+                            <label class="boxed-input" for="issue_technical">
+                                Technical issue
+                            </label>
+                        </div>
+                        <div class="content-l_col content-l_col-1-2">
+                            <input class="cf-input" type="radio" id="issue_user" value="issue_user" name="response_radios">
+                            <label class="boxed-input" for="issue_user">
+                                User account issue
+                            </label>
+                            <input class="cf-input" type="radio" id="issue_other" value="issue_other" name="response_radios">
+                            <label class="boxed-input" for="issue_other">
+                                Other issue
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Describe the issue in detail  -->
+                <div class="content-l_col content-l_col-1 response_input response_input__char-limit">
+                    <label for="description" class="h3">
+                        Please describe the issue in detail
+                    </label>
+                    <div class="block block__bg block__flush-top block__flush-bottom block__separators">
+                        <textarea id="description" rows="10"></textarea>
+                    </div>
+                </div>
+
+                <!-- Describe the issue in detail  -->
+                <div class="content-l_col content-l_col-1 response_input ticket_piece" data-issue="issue_complaint">
+                    <label for="complaint-id" class="form-label-header">
+                        What is the ID of the complaint this issue is about?
+                    </label>
+                    <input type="text" id="complaint-id">
+                </div>
+
+                <!-- Upload a document  -->
+                <div class="content-l_col content-l_col-1 response_input">
+                    <label for="upload" class="h3">
+                        Upload a document
+                        <span class="form-label-helper-text">(optional)</span>
+                    </label>
+                    <div class="block block__bg block__flush-top block__flush-bottom block__separators">
+                        <div class="uploader">
+                            <div class="uploader_header h2 u-mb5">
+                                Drop files here to attach them
+                            </div>
+                            <div class="micro-copy">
+                                We accept all file formats, except executable files (.exe), up to 100MB
+                            </div>
+                            <button class="btn u-mt30" type="button">
+                                Select files to upload
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Operating system and version  -->
+                <div class="content-l_col content-l_col-3-4 response_input">
+                    <h3>
+                        What operating system and browser were you using when the issue happened?
+                    </h3>
+                    <p class="u-mb30">
+                        Your current operating system and browser versions are populated below. If you are submitting a ticket about an issue when using a different operating system or browser, you can update this information below.
+                    </p>
+                    <label for="operating-system" class="form-label-header">
+                        Operating system and version
+                        <span class="form-label-helper-text">(optional)</span>
+                    </label>
+                    <input type="text" id="operating-system" class="response_input__long" value="Intel Mac OS X 10_10_5">
+                </div>
+
+                <!-- Browser name and version  -->
+                <div class="content-l_col content-l_col-3-4 response_input">
+                    <label for="browser" class="form-label-header">
+                        Browser name and version
+                        <span class="form-label-helper-text">(optional)</span>
+                    </label>
+                    <input type="text" id="browser" class="response_input__long" value="Chrome/52.0.2743.82">
+                </div>
+
+                <!-- Submit button  -->
+                <div class="content-l_col content-l_col-3-4 response_input">
+                    <input type="submit" class="btn btn__super" value="Submit ticket">
+                </div>
+            </form>
+        </div>
+        <aside class="content_sidebar ">
+            <div class="block block__flush-top">
+                <h2 class="header-slug">
+                    <span class="header-slug_inner">Send feedback</span>
+                </h2>
+                <p>
+                    Have feedback about this portal that doesn't require a support ticket? Send us an email so we can hear what you like and what we can improve.
+                </p>
+                <a href="#not-yet" class="jump-link">
+                    <span class="jump-link_text">
+                        Email portal-feedback@cfpb.gov
+                    </span>
+                </a>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer class="global-footer">
+    <!-- Handlebars inserts global footer here -->
+</footer>
+
+<!--
+    ============
+    BODY SCRIPTS
+    ============
+    The number of scripts here must be kept to a minimum.
+    Unless adding a significant amount of JS that is specific to a single page
+    or section of the site, all custom JS should be added to src/static/js/app.js.
+-->
+
+<script src="static/js/main.min.js"></script>
+
+</body>

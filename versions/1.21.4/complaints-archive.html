@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+<head>
+
+<!--
+    ===========
+    GLOBAL META
+    ===========
+-->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+    ==================
+    PAGE-SPECIFIC META
+    ==================
+-->
+
+    <title>Archived complaints</title>
+
+<!--
+    ======
+    STYLES
+    ======
+    The number of stylesheets here must be kept to a minimum.
+    Unless adding a significant amount of CSS that is specific to a single page
+    or section of the site, all new styles should be added to src/static/css/app.less.
+-->
+
+<!--[if lt IE 9]>      <link rel="stylesheet" href="static/css/main.ie.min.css"> <![endif]-->
+<!--[if gt IE 8]><!--> <link rel="stylesheet" href="static/css/main.min.css"> <!--<![endif]-->
+
+<!--
+    ============
+    HEAD SCRIPTS
+    ============
+    The following scripts must be included in the head. DO NOT ADD ANY MORE.
+    All other scripts should go before the closing body tag.
+    If you come across a script that makes a convincing case to be included in
+    the head, then file an issue or PR to discuss including it.
+-->
+
+<!--[if lt IE 9]>
+    <script src="static/vendor/html5shiv/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+
+    <script>
+        // Confirm availability of JS and remove no-js class from html
+        var docElement = document.documentElement;
+        docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
+    </script>
+
+</head>
+
+<body data-active-page="complaints-active">
+
+<!--
+    =================
+    Begin page source
+    =================
+-->
+
+<header class="global-header">
+    <!-- Handlebars inserts global header here -->
+</header>
+
+<main class="content">
+    <div class="content_wrapper">
+        <div class="content_main cases">
+            <div class="tabs">
+                <a href="complaints-active.html"
+                class="tabs_item">
+                    Active
+                </a><a href="complaints-archive.html"
+                class="tabs_item tabs_item__active">
+                    Archive
+                </a>
+            </div>
+            <div class="expandable expandable__padded expandable__borders">
+                <a class="expandable_target expandable_header"
+                   href="#expandable-padded-content">
+                    <span class="expandable_label expandable_header-left">
+                        Filter and search complaints
+                    </span>
+                    <span class="expandable_link expandable_header-right">
+                        <span class="expandable_cue-open">
+                            Show
+                            <span class="cf-icon cf-icon-plus-round"></span>
+                        </span>
+                        <span class="expandable_cue-close">
+                            Hide
+                            <span class="cf-icon cf-icon-minus-round"></span>
+                        </span>
+                    </span>
+                </a>
+                <div class="expandable_content" id="expandable-padded-content">
+                    <form action="#not-yet" class="filter">
+                        <div class="content-l filter-row">
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_id">
+                                    Complaint ID
+                                </label>
+                                <input id="filter_id" type="text">
+                            </div>
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_consumer-name">
+                                    Primary consumer name
+                                </label>
+                                <input id="filter_consumer-name" type="text">
+                            </div>
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_product">
+                                    Product
+                                </label>
+                                 <input id="filter_product" type="text" placeholder="Choose any" disabled>
+                            </div>
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_issue">
+                                    Issue
+                                </label>
+                                <input id="filter_issue" class="filter__disabled" type="text" placeholder="Select a product first" disabled>
+                            </div>
+                        </div>
+                        <div class="content-l filter-row">
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_received">
+                                    Sent to company
+                                </label>
+                                <div class="content-l">
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <label for="sent-start">
+                                            From
+                                        </label>
+                                        <input id="sent-start" type="text" placeholder="MM/DD/YYYY">
+                                    </div>
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <label for="sent-end">
+                                            To
+                                        </label>
+                                        <input id="sent-end" type="text" placeholder="MM/DD/YYYY">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_company">
+                                    Company response
+                                </label>
+                                <input id="filter_company" type="text" placeholder="Choose any" disabled>
+                            </div>
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_response">
+                                    Response sent
+                                </label>
+                                <div class="content-l">
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <label for="response-start">
+                                            From
+                                        </label>
+                                        <input id="response-start" type="text" placeholder="MM/DD/YYYY">
+                                    </div>
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <label for="response-end">
+                                            To
+                                        </label>
+                                        <input id="response-end" type="text" placeholder="MM/DD/YYYY">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_response">
+                                    Public response?
+                                </label>
+                                <div class="content-l">
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <input class="cf-input" type="checkbox" value="response-na" id="response-na" name="response-na">
+                                        <label for="response-na">
+                                            N/A
+                                        </label>
+                                        <input class="cf-input" type="checkbox" value="response-no" id="response-no" name="response-no">
+                                        <label for="response-no">
+                                            No
+                                        </label>
+                                    </div>
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <input class="cf-input" type="checkbox" value="response-none" id="response-none" name="response-none">
+                                        <label for="response-none">
+                                            None
+                                        </label>
+                                        <input class="cf-input" type="checkbox" value="response-yes" id="response-yes" name="response-yes">
+                                        <label for="response-yes">
+                                            Yes
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-l filter-row">
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_ccdb">
+                                    CCDB ID
+                                </label>
+                                <input id="filter_ccdb" type="text">
+                            </div>
+                        </div>
+                        <div class="content-l">
+                            <div class="content-l_col content-l_col-1">
+                                <input class="btn" type="submit" value="Apply filters">
+                                <a class="btn btn__warning btn__link" href="#not-yet">
+                                    Clear filters
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <table class="table__sortable cases-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <button class="sortable">
+                                Complaint ID
+                            </button>
+                        </th>
+                        <th>
+                            <button class="sortable">
+                                Primary consumer
+                            </button>
+                        </th>
+                        <th>
+                            <button class="sortable">
+                                Product and issue
+                            </button>
+                        </th>
+                        <th>
+                            <button class="sortable">
+                                Sent to company
+                            </button>
+                        </th>
+                        <th>
+                            <button class="sortable">
+                                Company response
+                            </button>
+                        </th>
+                        <th>
+                            <button class="sortable sortable__start-down">
+                                Response sent
+                            </button>
+                        </th>
+                        <th>
+                            <button class="sortable">
+                                Public response?
+                            </button>
+                        </th>
+                        <th>
+                            <button class="sortable">
+                                CCDB ID
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="complaint-detail-archive.html">
+                                160601-000005
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                First Last
+                            </div>
+                            <div class="cases-table_id">
+                                123 Some St.<br>
+                                City, ST 55555
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Home mortgage
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems with the mortgage servicer when you are unable to pay
+                            </div>
+                        </td>
+                        <td>
+                            06/01/2016 18:00 ET
+                        </td>
+                        <td>
+                            Information provided
+                        </td>
+                        <td>
+                            06/10/2016 11:54 ET
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="complaint-detail-archive.html">
+                                160601-000004
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                First Last
+                            </div>
+                            <div class="cases-table_id">
+                                234 Some St.<br>
+                                City, ST 55555
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Home mortgage
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems with the mortgage servicer when you are unable to pay
+                            </div>
+                        </td>
+                        <td>
+                            06/01/2016 14:52 ET
+                        </td>
+                        <td>
+                            Closed with explanation
+                        </td>
+                        <td>
+                            06/09/2016 11:54 ET
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="complaint-detail-archive.html">
+                                160601-000003
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                First Last
+                            </div>
+                            <div class="cases-table_id">
+                                345 Some St.<br>
+                                City, ST 55555
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Home mortgage
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems with the mortgage servicer when you are unable to pay
+                            </div>
+                        </td>
+                        <td>
+                            06/01/2016 13:01 ET
+                        </td>
+                        <td>
+                            Closed with explanation
+                        </td>
+                        <td>
+                            06/07/2016 11:54 ET
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="complaint-detail-archive.html">
+                                160601-000002
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                First Last
+                            </div>
+                            <div class="cases-table_id">
+                                456 Some St.<br>
+                                City, ST 55555
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Home mortgage
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems with the mortgage servicer when you are unable to pay
+                            </div>
+                        </td>
+                        <td>
+                            06/01/2016 12:00 ET
+                        </td>
+                        <td>
+                            Information provided
+                        </td>
+                        <td>
+                            06/05/2016 11:54 ET
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="complaint-detail-archive.html">
+                                160601-000001
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                First Last
+                            </div>
+                            <div class="cases-table_id">
+                                567 Some St.<br>
+                                City, ST 55555
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Home mortgage
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems with the mortgage servicer when you are unable to pay
+                            </div>
+                        </td>
+                        <td>
+                            06/01/2016 12:00 ET
+                        </td>
+                        <td>
+                            Closed with explanation
+                        </td>
+                        <td>
+                            06/04/2016 11:54 ET
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="complaint-detail-archive.html">
+                                160328-000001
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                Longfirst Last-Hyphenated
+                            </div>
+                            <div class="cases-table_id">
+                                678 Some St.<br>
+                                City, ST 55555
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Credit card
+                            </div>
+                            <div class="cases-table_issue">
+                                Disagree with the fees charged
+                            </div>
+                        </td>
+                        <td>
+                            03/28/2016 12:00 ET
+                        </td>
+                        <td>
+                            Closed with explanation
+                        </td>
+                        <td>
+                            04/12/2016 11:54 ET
+                        </td>
+                        <td>
+                            Yes
+                        </td>
+                        <td>
+                            842342
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="complaint-detail-archive.html">
+                                160319-000001
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                First Last
+                            </div>
+                            <div class="cases-table_id">
+                                789 Some St.<br>
+                                City, ST 55555
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Vehicle loan
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems getting the loan
+                            </div>
+                        </td>
+                        <td>
+                            03/19/2016 12:00 ET
+                        </td>
+                        <td>
+                            Information provided
+                        </td>
+                        <td>
+                            03/21/2016 11:54 ET
+                        </td>
+                        <td>
+                            No
+                        </td>
+                        <td>
+                            841001
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="complaint-detail-archive.html">
+                                160220-000001
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                Longfirst Longlast
+                            </div>
+                            <div class="cases-table_id">
+                                890 Some St.<br>
+                                City, ST 55555
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Home mortgage
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems with the mortgage servicer when you are unable to pay
+                            </div>
+                        </td>
+                        <td>
+                            02/20/2016 12:00 ET
+                        </td>
+                        <td>
+                            Information provided
+                        </td>
+                        <td>
+                            02/21/2016 11:54 ET
+                        </td>
+                        <td>
+                            Yes
+                        </td>
+                        <td>
+                            840678
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="complaint-detail-archive.html">
+                                160204-000001
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                First Last
+                            </div>
+                            <div class="cases-table_id">
+                                901 Some St.<br>
+                                City, ST 55555
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Credit card
+                            </div>
+                            <div class="cases-table_issue">
+                                Disagree with the fees charged
+                            </div>
+                        </td>
+                        <td>
+                            02/04/2016 12:00 ET
+                        </td>
+                        <td>
+                            Closed with explanation
+                        </td>
+                        <td>
+                            02/14/2016 11:54 ET
+                        </td>
+                        <td>
+                            Yes
+                        </td>
+                        <td>
+                            840599
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="complaint-detail-archive.html">
+                                160102-000001
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                First Last
+                            </div>
+                            <div class="cases-table_id">
+                                101 Some St.<br>
+                                City, ST 55555
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Home mortgage
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems with the mortgage servicer when you are unable to pay
+                            </div>
+                        </td>
+                        <td>
+                            01/02/2016 12:00 ET
+                        </td>
+                        <td>
+                            Closed with non-monetary relief
+                        </td>
+                        <td>
+                            01/09/2016 11:54 ET
+                        </td>
+                        <td>
+                            N/A
+                        </td>
+                        <td>
+                            839154
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <nav class="pagination">
+                <a class="btn btn__super btn__disabled pagination_prev"
+                href="#not-yet">
+                    <span class="btn_icon__left cf-icon cf-icon-left"></span>
+                        Previous
+                </a>
+                <a class="btn btn__super pagination_next"
+                href="#not-yet">
+                    Next
+                    <span class="btn_icon__right cf-icon cf-icon-right"></span>
+                </a>
+                <form class="pagination_form" action="#not-yet">
+                    <label class="pagination_label"
+                    for="pagination_current-page">
+                        Page
+                        <span class="u-visually-hidden">
+                            number out of 64 total pages
+                        </span>
+                    </label>
+                    <input
+                    class="pagination_current-page"
+                    id="pagination_current-page"
+                    name="pagination_current-page"
+                    type="number" min="1" max="64"
+                    value="1">
+                        <span class="pagination_label">
+                            <span aria-hidden="true">
+                                of 64
+                            </span>
+                        </span>
+                    <button class="btn btn__link pagination_submit"
+                    id="pagination_submit"
+                    type="submit">
+                        Go
+                    </button>
+                </form>
+            </nav>
+        </div>
+    </div>
+</main>
+
+<footer class="global-footer">
+    <!-- Handlebars inserts global footer here -->
+</footer>
+
+<!--
+    ============
+    BODY SCRIPTS
+    ============
+    The number of scripts here must be kept to a minimum.
+    Unless adding a significant amount of JS that is specific to a single page
+    or section of the site, all custom JS should be added to src/static/js/app.js.
+-->
+
+<script src="static/js/main.min.js"></script>
+
+</body>

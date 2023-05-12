@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+<head>
+
+<!--
+    ===========
+    GLOBAL META
+    ===========
+-->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+    ==================
+    PAGE-SPECIFIC META
+    ==================
+-->
+
+    <title>Active complaints</title>
+
+<!--
+    ======
+    STYLES
+    ======
+    The number of stylesheets here must be kept to a minimum.
+    Unless adding a significant amount of CSS that is specific to a single page
+    or section of the site, all new styles should be added to src/static/css/app.less.
+-->
+
+<!--[if lt IE 9]>      <link rel="stylesheet" href="static/css/main.ie.min.css"> <![endif]-->
+<!--[if gt IE 8]><!--> <link rel="stylesheet" href="static/css/main.min.css"> <!--<![endif]-->
+
+<!--
+    ============
+    HEAD SCRIPTS
+    ============
+    The following scripts must be included in the head. DO NOT ADD ANY MORE.
+    All other scripts should go before the closing body tag.
+    If you come across a script that makes a convincing case to be included in
+    the head, then file an issue or PR to discuss including it.
+-->
+
+<!--[if lt IE 9]>
+    <script src="static/vendor/html5shiv/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+
+    <script>
+        // Confirm availability of JS and remove no-js class from html
+        var docElement = document.documentElement;
+        docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
+    </script>
+
+</head>
+
+<body data-active-page="complaints-active">
+
+<!--
+    =================
+    Begin page source
+    =================
+-->
+
+<header class="global-header">
+    <!-- Handlebars inserts global header here -->
+</header>
+
+<main class="content">
+    <div class="content_wrapper">
+        <div class="content_main cases">
+            <div class="tabs">
+                <a href="complaints-active.html"
+                class="tabs_item tabs_item__active">
+                    Active
+                </a><a href="complaints-archive.html"
+                class="tabs_item">
+                    Archive
+                </a>
+            </div>
+            <a href="exports.html?type=active"
+            class="btn btn__super btn__export">
+                Export
+            </a>
+            <div class="expandable expandable__padded expandable__borders">
+                <a class="expandable_target expandable_header"
+                   href="#expandable-padded-content">
+                    <span class="expandable_label expandable_header-left">
+                        Filter and search complaints
+                    </span>
+                    <span class="expandable_link expandable_header-right">
+                        <span class="expandable_cue-open">
+                            Show
+                            <span class="cf-icon cf-icon-plus-round"></span>
+                        </span>
+                        <span class="expandable_cue-close">
+                            Hide
+                            <span class="cf-icon cf-icon-minus-round"></span>
+                        </span>
+                    </span>
+                </a>
+                <div class="expandable_content" id="expandable-padded-content">
+                    <form action="#not-yet" class="filter">
+                        <div class="content-l filter-row">
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_id">
+                                    Complaint ID
+                                </label>
+                                <input id="filter_id" type="text">
+                            </div>
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_consumer-name">
+                                    Primary consumer name
+                                </label>
+                                <input id="filter_consumer-name" type="text">
+                            </div>
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_product">
+                                    Product
+                                </label>
+                                 <input id="filter_product" type="text" placeholder="Choose any" disabled>
+                            </div>
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_issue">
+                                    Issue
+                                </label>
+                                <input id="filter_issue" class="filter__disabled" type="text" placeholder="Select a product first" disabled>
+                            </div>
+                        </div>
+                        <div class="content-l filter-row">
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_received">
+                                    Sent to company
+                                </label>
+                                <div class="content-l">
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <label for="sent-start">
+                                            From
+                                        </label>
+                                        <input id="sent-start" type="text" placeholder="MM/DD/YYYY">
+                                    </div>
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <label for="sent-end">
+                                            To
+                                        </label>
+                                        <input id="sent-end" type="text" placeholder="MM/DD/YYYY">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-l_col content-l_col-1-4">
+                                <label class="form-label-header" for="filter_due">
+                                    Due date
+                                </label>
+                                <div class="content-l">
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <label for="due-start">
+                                            From
+                                        </label>
+                                        <input id="due-start" type="text" placeholder="MM/DD/YYYY">
+                                    </div>
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <label for="due-end">
+                                            To
+                                        </label>
+                                        <input id="due-end" type="text" placeholder="MM/DD/YYYY">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-l_col content-l_col-1-2">
+                                <label class="form-label-header" for="filter_status">
+                                    Alert
+                                </label>
+                                <div class="content-l">
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <input class="cf-input" type="checkbox" value="status-info" id="status-info" name="status-info">
+                                        <label for="status-info">
+                                            CFPB needs more info
+                                        </label>
+                                        <input class="cf-input" type="checkbox" value="status-soon" id="status-soon" name="status-soon">
+                                        <label for="status-soon">
+                                            Due soon
+                                        </label>
+                                        <input class="cf-input" type="checkbox" value="status-progress" id="status-progress" name="status-progress">
+                                        <label for="status-progress">
+                                            In progress
+                                        </label>
+                                    </div>
+                                    <div class="content-l_col content-l_col-1-2">
+                                        <input class="cf-input" type="checkbox" value="status-past" id="status-past" name="status-past">
+                                        <label for="status-past">
+                                            Past due
+                                        </label>
+                                        <input class="cf-input" type="checkbox" value="status-unread" id="status-unread" name="status-unread">
+                                        <label for="status-unread">
+                                            Unread
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-l">
+                            <div class="content-l_col content-l_col-1">
+                                <input class="btn" type="submit" value="Apply filters">
+                                <a class="btn btn__warning btn__link" href="#not-yet">
+                                    Clear filters
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="cf-notification cf-notification__success filter_success">
+                <span class="cf-notification_icon cf-notification_icon__success cf-icon cf-icon-approved-round"></span>
+                <p class="cf-notification_text">
+                    <span class="h4">
+                        NNN filtered results
+                    </span>
+                </p>
+            </div>
+            <table class="table__sortable cases-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <button class="sortable">
+                                Complaint ID
+                            </button>
+                        </th>
+                        <th>
+                            <button class="sortable">
+                                Primary consumer
+                            </button>
+                        </th>
+                        <th>
+                            <button class="sortable">
+                                Product and issue
+                            </button>
+                        </th>
+                        <th>
+                            <button class="sortable">
+                                Consumer-identified company
+                            </button>
+                        </th>
+                        <th>
+                            <button class="sortable">
+                                Sent to company
+                            </button>
+                        </th>
+                        <th>
+                            <button class="sortable sortable__start-up">
+                                Due date
+                            </button>
+                        </th>
+                        <th>
+                            <button class="sortable">
+                                Alert
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-alert table-alert__past-due">
+                        <td>
+                            <a href="complaint-detail-active.html">
+                                160614-000000
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                Deniz Bolat
+                            </div>
+                            <div class="cases-table_id">
+                                Residence: <br>
+                                318 N. 5th St., Chicago, IL
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Home mortgage
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems with the mortgage servicer when you are unable to pay
+                            </div>
+                        </td>
+                        <td>
+                            Acme Mortgages
+                        </td>
+                        <td>
+                            06/13/2016 14:42
+                        </td>
+                        <td>
+                            06/28/2016
+                        </td>
+                        <td>
+                            Past due
+                        </td>
+                    </tr>
+                    <tr class="table-alert table-alert__due-soon">
+                        <td>
+                            <a href="complaint-detail-active.html">
+                                160615-000000
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                Michele Hahn
+                            </div>
+                            <div class="cases-table_id">
+                                Account: <br>
+                                32023-192
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Home mortgage
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems with the mortgage servicer when you are unable to pay
+                            </div>
+                        </td>
+                        <td>
+                            Acme Mortgages
+                        </td>
+                        <td>
+                            06/15/2016 13:18
+                        </td>
+                        <td>
+                            06/30/2016
+                        </td>
+                        <td>
+                            Due soon
+                            <div class="secondary-alert">
+                                <span class="cf-icon cf-icon-email-social"></span>
+                                Unread
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="table-alert table-alert__due-soon">
+                        <td>
+                            <a href="complaint-detail-active.html">
+                                160617-000001
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                Neal Inge
+                            </div>
+                            <div class="cases-table_id">
+                                Card: <br>
+                                3821 1829 4829 6467
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Credit card
+                            </div>
+                            <div class="cases-table_issue">
+                                Disagree with the fees charged
+                            </div>
+                        </td>
+                        <td>
+                            AcmeCard
+                        </td>
+                        <td>
+                            06/15/2016 19:01
+                        </td>
+                        <td>
+                            06/30/2016
+                        </td>
+                        <td>
+                            Due soon
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="complaint-detail-active.html">
+                                160617-000000
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                Paul Nguyen
+                            </div>
+                            <div class="cases-table_id">
+                                Loan: <br>
+                                891932881
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Home mortgage
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems with the mortgage servicer when you are unable to pay
+                            </div>
+                        </td>
+                        <td>
+                            Acme Mortgages
+                        </td>
+                        <td>
+                            06/17/2016 9:56
+                        </td>
+                        <td>
+                            07/02/2016
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="complaint-detail-active.html">
+                                160618-000000
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                Bill Bolat
+                            </div>
+                            <div class="cases-table_id">
+                                Loan: <br>
+                                A-63628281
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Vehicle loan
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems getting the loan
+                            </div>
+                        </td>
+                        <td>
+                            Acme Loans
+                        </td>
+                        <td>
+                            06/18/2016 20:18
+                        </td>
+                        <td>
+                            07/03/2016
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr class="table-alert table-alert__unread">
+                        <td>
+                            <a href="complaint-detail-active.html">
+                                160623-000000<br>
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                First Last
+                            </div>
+                            <div class="cases-table_id">
+                                Loan: <br>
+                                XXXXXXXXX
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Home mortgage
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems with the mortgage servicer when you are unable to pay
+                            </div>
+                        </td>
+                        <td>
+                            Acme Mortgages
+                        </td>
+                        <td>
+                            06/23/2016 12:00
+                        </td>
+                        <td>
+                            07/08/2016
+                        </td>
+                        <td>
+                            Unread
+                        </td>
+                    </tr>
+                    <tr class="table-alert table-alert__unread">
+                        <td>
+                            <a href="complaint-detail-active.html">
+                                160623-000001
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                First Last
+                            </div>
+                            <div class="cases-table_id">
+                                Loan: <br>
+                                XXXXXXXXX
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Home mortgage
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems with the mortgage servicer when you are unable to pay
+                            </div>
+                        </td>
+                        <td>
+                            Acme Mortgages
+                        </td>
+                        <td>
+                            06/23/2016 12:00
+                        </td>
+                        <td>
+                            07/08/2016
+                        </td>
+                        <td>
+                            Unread
+                        </td>
+                    </tr>
+                    <tr class="table-alert table-alert__unread">
+                        <td>
+                            <a href="complaint-detail-active.html">
+                                160623-000002
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                First Last
+                            </div>
+                            <div class="cases-table_id">
+                                Loan: <br>
+                                XXXXXXXXX
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Home mortgage
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems with the mortgage servicer when you are unable to pay
+                            </div>
+                        </td>
+                        <td>
+                            Acme Mortgages
+                        </td>
+                        <td>
+                            06/23/2016 12:00
+                        </td>
+                        <td>
+                            07/08/2016
+                        </td>
+                        <td>
+                            Unread
+                        </td>
+                    </tr>
+                    <tr class="table-alert table-alert__in-progress">
+                        <td>
+                            <a href="complaint-detail-active.html">
+                                160623-000003
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                First Last
+                            </div>
+                            <div class="cases-table_id">
+                                Loan: <br>
+                                XXXXXXXXX
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Home mortgage
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems with the mortgage servicer when you are unable to pay
+                            </div>
+                        </td>
+                        <td>
+                            Acme Mortgages
+                        </td>
+                        <td>
+                            06/23/2016 12:00
+                        </td>
+                        <td>
+                            08/28/2016
+                            <div class="in-progress-label">
+                                In progress
+                            </div>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr class="table-alert table-alert__under-review">
+                        <td>
+                            <a href="complaint-detail-active.html">
+                                151201-000004
+                            </a>
+                        </td>
+                        <td>
+                            <div class="cases-table_name">
+                                Elpido Rafanan
+                            </div>
+                            <div class="cases-table_id">
+                                Account: <br>
+                                483921-1
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cases-table_product">
+                                Home mortgage
+                            </div>
+                            <div class="cases-table_issue">
+                                Problems with the mortgage servicer when you are unable to pay
+                            </div>
+                        </td>
+                        <td>
+                            Acme Mortgages
+                        </td>
+                        <td>
+                            06/21/2016 16:45
+                        </td>
+                        <td>
+                            07/06/2016
+                        </td>
+                        <td>
+                            CFPB needs more info
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <nav class="pagination">
+                <a class="btn btn__super btn__disabled pagination_prev"
+                href="#not-yet">
+                    <span class="btn_icon__left cf-icon cf-icon-left"></span>
+                        Previous
+                </a>
+                <a class="btn btn__super pagination_next"
+                href="#not-yet">
+                    Next
+                    <span class="btn_icon__right cf-icon cf-icon-right"></span>
+                </a>
+                <form class="pagination_form" action="#not-yet">
+                    <label class="pagination_label"
+                    for="pagination_current-page">
+                        Page
+                        <span class="u-visually-hidden">
+                            number out of 2 total pages
+                        </span>
+                    </label>
+                    <input
+                    class="pagination_current-page"
+                    id="pagination_current-page"
+                    name="pagination_current-page"
+                    type="number" min="1" max="2"
+                    value="1">
+                        <span class="pagination_label">
+                            <span aria-hidden="true">
+                                of 2
+                            </span>
+                        </span>
+                    <button class="btn btn__link pagination_submit"
+                    id="pagination_submit"
+                    type="submit">
+                        Go
+                    </button>
+                </form>
+            </nav>
+        </div>
+    </div>
+</main>
+
+<footer class="global-footer">
+    <!-- Handlebars inserts global footer here -->
+</footer>
+
+<!--
+    ============
+    BODY SCRIPTS
+    ============
+    The number of scripts here must be kept to a minimum.
+    Unless adding a significant amount of JS that is specific to a single page
+    or section of the site, all custom JS should be added to src/static/js/app.js.
+-->
+
+<script src="static/js/main.min.js"></script>
+
+</body>
