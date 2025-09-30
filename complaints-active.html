@@ -74,6 +74,16 @@
 <main class="content">
     <div class="content_wrapper">
         <div class="content_main cases">
+            <div class="ai-panel" id="ai-panel" style="border:1px solid #ccc;padding:12px;margin-bottom:16px;border-radius:4px;display:flex;flex-direction:column;gap:8px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+                    <strong>AI Complaint Triage</strong>
+                    <div style="display:flex;gap:8px;align-items:center;">
+                        <button id="ai-analyze-btn" class="btn">Analyze visible complaints</button>
+                        <span id="ai-status" style="font-size:12px;color:#666;"></span>
+                    </div>
+                </div>
+                <div id="ai-results" style="max-height:260px;overflow:auto;font-size:13px;line-height:1.3;display:none;"></div>
+            </div>
             <div class="tabs">
                 <a href="complaints-active.html"
                 class="tabs_item tabs_item__active">
@@ -1220,5 +1230,93 @@
 -->
 
 <script src="static/js/main.min.js"></script>
+<script>
+// AI integration script
+(() => {
+    const btn = document.getElementById('ai-analyze-btn');
+    const statusEl = document.getElementById('ai-status');
+    const resultsEl = document.getElementById('ai-results');
+    if (!btn) return;
+
+    function gatherComplaints() {
+        const rows = Array.from(document.querySelectorAll('table.cases-table tbody tr'));
+        return rows.map(r => {
+            const id = r.querySelector('td a')?.textContent.trim();
+            const product = r.querySelector('.cases-table_product')?.textContent.trim();
+            const issue = r.querySelector('.cases-table_issue')?.textContent.trim();
+            const consumer = r.querySelector('.cases-table_name')?.textContent.trim();
+            return { id, product, issue, consumer, rawText: `${product || ''} - ${issue || ''}`.trim() };
+        }).filter(c => c.id);
+    }
+
+    function render(results) {
+        if (!Array.isArray(results)) return;
+        resultsEl.style.display = 'block';
+        resultsEl.innerHTML = results.map(r => {
+            const priorityColor = r.priority === 'urgent' ? '#b10e1e' : r.priority === 'medium' ? '#946200' : '#286738';
+            const issues = (r.issues || []).map(i => `<li><strong>${i.risk_category || 'issue'}:</strong> ${i.text}<br><em style="color:#555">${i.rationale || ''}</em></li>`).join('');
+            return `<div class="ai-result" data-id="${r.id}" style="border:1px solid #ddd;padding:8px;margin-bottom:6px;border-left:4px solid ${priorityColor};background:#fafafa;">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+                    <span><strong>${r.id}</strong> – <span style="color:${priorityColor}">${r.priority.toUpperCase()}</span>${r.risk_score != null ? ` (risk ${r.risk_score})` : ''}</span>
+                    <button class="btn btn__link" data-ai-jump="${r.id}" style="font-size:12px;">Highlight row</button>
+                </div>
+                <div style="margin:4px 0 6px;font-size:12px;">${r.summary || ''}</div>
+                ${issues ? `<ul style="margin:0 0 4px 16px;padding:0;font-size:12px;">${issues}</ul>` : ''}
+            </div>`;
+        }).join('');
+
+        // Tag rows in table
+        results.forEach(r => {
+            const row = Array.from(document.querySelectorAll('table.cases-table tbody tr'))
+                .find(tr => tr.querySelector('td a')?.textContent.trim() === r.id);
+            if (row) {
+                row.classList.add('ai-scored');
+                row.dataset.aiPriority = r.priority;
+                row.style.outline = r.priority === 'urgent' ? '2px solid #b10e1e' : r.priority === 'medium' ? '2px solid #946200' : '1px solid #286738';
+            }
+        });
+
+        // Jump buttons
+        resultsEl.querySelectorAll('[data-ai-jump]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = btn.getAttribute('data-ai-jump');
+                const row = Array.from(document.querySelectorAll('table.cases-table tbody tr'))
+                    .find(tr => tr.querySelector('td a')?.textContent.trim() === id);
+                if (row) {
+                    row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    row.animate([
+                        { backgroundColor: '#fff799' },
+                        { backgroundColor: 'transparent' }
+                    ], { duration: 1600 });
+                }
+            });
+        });
+    }
+
+    async function analyze() {
+        const complaints = gatherComplaints();
+        statusEl.textContent = `Sending ${complaints.length} complaints…`;
+        btn.disabled = true;
+        try {
+            const resp = await fetch('http://localhost:3001/analyze-complaints', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ complaints })
+            });
+            const data = await resp.json();
+            if (!resp.ok) throw new Error(data.error || 'AI error');
+            statusEl.textContent = `Received ${data.count} analyses.`;
+            render(data.results);
+        } catch (e) {
+            statusEl.textContent = 'Error: ' + e.message;
+            console.error(e);
+        } finally {
+            btn.disabled = false;
+        }
+    }
+
+    btn.addEventListener('click', analyze);
+})();
+</script>
 
 </body>

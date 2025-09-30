@@ -1,0 +1,10 @@
+# Exclude things not needed in the image build context
+node_modules
+npm-debug.log
+Dockerfile*
+.git
+.gitignore
+.env
+*.md
+**/versions
+static/img/complaint-export.zip.sample
