@@ -1,0 +1,242 @@
+/* CFPB-inspired Dark Mode Styles - System Based */
+/* Automatically applies based on user's system preference */
+
+@media (prefers-color-scheme: dark) {
+  /* Base body styles */
+  body {
+    background-color: #181c1f !important;
+    color: #e3e6e8 !important;
+  }
+
+  /* Reset all backgrounds to prevent white bleeding */
+  *, *::before, *::after {
+    background-color: inherit !important;
+  }
+
+  /* Core layout containers */
+  html, body, main, .content, .content_wrapper, .content_main, .content_sidebar {
+    background-color: #181c1f !important;
+    color: #e3e6e8 !important;
+  }
+
+  /* Block elements - Dashboard specific */
+  .block, .block__bg, .block__borders, .block__flush-top {
+    background-color: #181c1f !important;
+    color: #e3e6e8 !important;
+    border-color: #3a3f45 !important;
+  }
+
+  .dashboard_complaints {
+    background-color: #181c1f !important;
+    color: #e3e6e8 !important;
+  }
+
+  /* Content layout grid */
+  .content-l, .content-l_col, .content-l_col-1-3, .content-l_col-2-3 {
+    background-color: transparent !important;
+  }
+
+  /* Text elements - ensure proper contrast */
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #e3e6e8 !important;
+    background-color: transparent !important;
+  }
+
+  p, span, div, label, li, td, th {
+    color: #e3e6e8 !important;
+    background-color: transparent !important;
+  }
+
+  /* Card styling with proper color coding */
+  .m-card {
+    background-color: #23272a !important;
+    border: 2px solid #3a3f45 !important;
+    color: #e3e6e8 !important;
+  }
+
+  .m-card_heading, .m-card_body {
+    color: #e3e6e8 !important;
+    background-color: transparent !important;
+  }
+
+  /* Active cards - Green theme */
+  .m-card__active {
+    background-color: #1a2f1a !important;
+    border-color: #20aa3f !important;
+  }
+
+  .m-card__active .m-card_heading {
+    color: #4fd66b !important;
+  }
+
+  .m-card__active .m-card_body {
+    color: #b8e6c1 !important;
+  }
+
+  /* Past Due cards - Red theme */
+  .m-card__past-due {
+    background-color: #3d1a1a !important;
+    border-color: #d14124 !important;
+  }
+
+  .m-card__past-due .m-card_heading,
+  .past-due-heading {
+    color: #ff5555 !important;
+  }
+
+  .m-card__past-due .m-card_body {
+    color: #ffb3b3 !important;
+  }
+
+  /* Due Soon cards - Orange theme */
+  .m-card__due-soon {
+    background-color: #3d2d1a !important;
+    border-color: #ff9e1b !important;
+  }
+
+  .m-card__due-soon .m-card_heading {
+    color: #ffb84d !important;
+  }
+
+  .m-card__due-soon .m-card_body {
+    color: #ffd9b3 !important;
+  }
+
+  /* Unread, More Info, In Progress cards - Blue theme */
+  .m-card__unread, .m-card__more-info, .m-card__in-progress {
+    background-color: #1a252d !important;
+    border-color: #257675 !important;
+  }
+
+  .m-card__unread .m-card_heading,
+  .m-card__more-info .m-card_heading,
+  .m-card__in-progress .m-card_heading {
+    color: #5cb3b5 !important;
+  }
+
+  .m-card__unread .m-card_body,
+  .m-card__more-info .m-card_body,
+  .m-card__in-progress .m-card_body {
+    color: #b3d9da !important;
+  }
+
+  /* Links */
+  a {
+    color: #7eb7e8 !important;
+    background-color: transparent !important;
+  }
+
+  a:hover, a:focus {
+    color: #20aa3f !important;
+  }
+
+  /* Card links specific colors */
+  .m-card__active a {
+    color: #66e080 !important;
+  }
+
+  .m-card__past-due a {
+    color: #ff8888 !important;
+  }
+
+  .m-card__due-soon a {
+    color: #ffcc66 !important;
+  }
+
+  .m-card__unread a, .m-card__more-info a, .m-card__in-progress a {
+    color: #88d1d3 !important;
+  }
+
+  /* Headers and Navigation */
+  .global-header, .global-footer {
+    background-color: #23272a !important;
+    color: #e3e6e8 !important;
+  }
+
+  /* Forms */
+  input, select, textarea, button {
+    background-color: #23272a !important;
+    color: #e3e6e8 !important;
+    border-color: #3a3f45 !important;
+  }
+
+  /* Enhanced Radio Button and Checkbox Visibility */
+  input[type="radio"], input[type="checkbox"] {
+    filter: hue-rotate(200deg) saturate(1.5) brightness(1.2) !important;
+    transform: scale(1.4) !important;
+    margin-right: 8px !important;
+  }
+
+  /* Hover states for better interaction feedback */
+  input[type="radio"]:hover, input[type="checkbox"]:hover {
+    filter: hue-rotate(120deg) saturate(2) brightness(1.4) !important;
+  }
+
+  /* Focus states for accessibility */
+  input[type="radio"]:focus, input[type="checkbox"]:focus {
+    outline: 2px solid #7eb7e8 !important;
+    outline-offset: 2px !important;
+  }
+
+  /* Label text next to form controls */
+  label {
+    color: #e3e6e8 !important;
+    cursor: pointer !important;
+  }
+
+  /* Form groups and fieldsets */
+  .form-group, fieldset, .fieldset {
+    background-color: transparent !important;
+    border-color: #3a3f45 !important;
+  }
+
+  /* Optional text styling */
+  .optional, [class*="optional"] {
+    color: #a0a3a6 !important;
+  }
+
+  /* Tables */
+  table, th, td {
+    background-color: #23272a !important;
+    color: #e3e6e8 !important;
+    border-color: #3a3f45 !important;
+  }
+
+  /* Notifications */
+  .cf-notification {
+    background-color: #23272a !important;
+    color: #e3e6e8 !important;
+    border-color: #20aa3f !important;
+  }
+
+  .cf-notification__error {
+    background-color: #3d1a1a !important;
+    border-color: #d14124 !important;
+  }
+
+  .cf-notification__success {
+    background-color: #1a2f1a !important;
+    border-color: #20aa3f !important;
+  }
+
+  .cf-notification__warning {
+    background-color: #3d2d1a !important;
+    border-color: #ff9e1b !important;
+  }
+
+  /* Force override any remaining white backgrounds */
+  [style*="background"] {
+    background-color: #23272a !important;
+  }
+
+  [style*="white"] {
+    background-color: #23272a !important;
+    color: #e3e6e8 !important;
+  }
+
+  /* Ensure no element has white background */
+  .white, .bg-white, [class*="white"] {
+    background-color: #23272a !important;
+    color: #e3e6e8 !important;
+  }
+}

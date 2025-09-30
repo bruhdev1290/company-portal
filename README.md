@@ -1,4 +1,7 @@
 # Company Portal – AI Complaint Triage
+# Company Portal – AI Complaint Triage
+
+**Note: Docker support is temporarily removed. The Dockerfile and related instructions are disabled while troubleshooting dark mode and other issues.**
 
 This project is a static complaint portal enhanced with an AI (Claude) backend service that analyzes visible complaints, assigns priority (urgent / medium / low), calculates a risk score, and highlights potential CFPB-relevant issues.
 
