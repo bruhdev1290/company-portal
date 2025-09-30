@@ -8,6 +8,7 @@ This project is a static complaint portal enhanced with an AI (Claude) backend s
 - Structured JSON output: id, priority, summary, risk_score, issues[]
 - Front-end panel on `complaints-active.html` to request analysis and visually mark rows
 - Environment‑based secret management (`CLAUDE_API_KEY`)
+- Experimental Dark Mode support (WIP) – feedback & contributions welcome
 
 ## Repository Structure (Relevant Parts)
 ```
