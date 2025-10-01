@@ -1,5 +1,8 @@
 # Company Portal – AI Complaint Triage
-# Company Portal – AI Complaint Triage
+
+
+![center stage view](https://github.com/user-attachments/assets/359ab954-2556-4954-b4c1-c08d6a9128f7)
+
 
 **Note: Docker support is temporarily removed. The Dockerfile and related instructions are disabled while troubleshooting dark mode and other issues.**
 
