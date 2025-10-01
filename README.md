@@ -271,8 +271,3 @@ npm install
 npm start
 ```
 
-## License / Usage
-Internal prototype / demo. Add an explicit license file before distributing.
-
----
-Questions or want automated tests / Docker support added? Open an issue or ask for the enhancement and we can implement it.
