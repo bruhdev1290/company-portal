@@ -1298,7 +1298,7 @@
         statusEl.textContent = `Sending ${complaints.length} complaints…`;
         btn.disabled = true;
         try {
-            const resp = await fetch('http://localhost:3001/analyze-complaints', {
+            const resp = await fetch('/analyze-complaints', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ complaints })
