@@ -18,6 +18,17 @@ if (!CLAUDE_API_KEY) {
   console.warn('[WARN] CLAUDE_API_KEY is not set. /analyze-complaints endpoint will return 500 until configured.');
 }
 
+// Enable CORS for cross-origin requests (e.g., when HTML is served on different port)
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 app.use(bodyParser.json({ limit: '1mb' }));
 
 // Optional static file serving (so Docker can host the HTML demo as well)

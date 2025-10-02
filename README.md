@@ -113,19 +113,31 @@ Should return JSON:
 If `hasKey` is false, re-check your environment variable or `.env` placement.
 
 ### 6. Open the Front-End
-You can simply open `complaints-active.html` in a browser (double-click). 
+The front-end is configured to connect to the API at `http://localhost:3001` by default. You can:
 
-However, for best results (avoiding any CORS quirks), serve files locally:
+**Option A – Open directly in browser** (simplest):
+- Just double-click `complaints-active.html` to open it
+- The page will automatically connect to `http://localhost:3001` where the API is running
+- Works with file:// URLs thanks to CORS support in the API
 
-Option A – Using `npx serve` (installs on first use):
+**Option B – Serve files locally** (recommended for development):
+Using `npx serve` (installs on first use):
 ```cmd
 npx serve ..  # Run from the api directory to serve project root
 ```
-Option B – Simple Python server (if Python installed):
+Or using a simple Python server (if Python installed):
 ```cmd
 python -m http.server 8080
 ```
 Then navigate to: `http://localhost:8080/complaints-active.html`
+
+**Customizing API URL:**
+If your API runs on a different host/port, set `window.AI_API_BASE_URL` before the page loads:
+```html
+<script>
+  window.AI_API_BASE_URL = 'http://your-api-host:port';
+</script>
+```
 
 ### 7. Run an AI Analysis
 On the `complaints-active.html` page:
@@ -192,8 +204,8 @@ set PORT=5000 && npm start
 |---------|-------|-----|
 | 500: CLAUDE_API_KEY not configured | Missing env var | Add to `.env` or set in shell |
 | Unable to parse AI response | Model returned non-JSON | Retry; reduce complaint set size |
-| ECONNREFUSED at fetch | API not running or wrong port | Start API, confirm port in console |
-| CORS issues (rare on file://) | Browser security model | Use a local static server |
+| Unable to fetch / ECONNREFUSED | API not running or wrong port | Ensure API is running (`npm start` in `api/` folder). Verify it's on port 3001 or set `window.AI_API_BASE_URL` |
+| Network error when clicking "Analyze" | API server not accessible | Check API is running at `http://localhost:3001/health`. If using different host/port, configure `window.AI_API_BASE_URL` |
 | hasKey: false in /health | `.env` not loaded | Ensure file named `.env` (no extension) |
 
 ## Security Notes
