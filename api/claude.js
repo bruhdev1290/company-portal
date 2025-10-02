@@ -118,7 +118,7 @@ If unsure, choose medium. Avoid hallucination—base findings ONLY on provided c
       'https://api.anthropic.com/v1/messages',
       {
         model: 'claude-3-opus-20240229',
-        max_tokens: 8000,
+        max_tokens: 4096,
         messages: [
           {
             role: 'user',
