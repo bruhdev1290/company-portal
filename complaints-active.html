@@ -1238,6 +1238,9 @@
     const resultsEl = document.getElementById('ai-results');
     if (!btn) return;
 
+    // API endpoint configuration - defaults to localhost:3001
+    const API_BASE_URL = window.AI_API_BASE_URL || 'http://localhost:3001';
+
     function gatherComplaints() {
         const rows = Array.from(document.querySelectorAll('table.cases-table tbody tr'));
         return rows.map(r => {
@@ -1298,7 +1301,7 @@
         statusEl.textContent = `Sending ${complaints.length} complaints…`;
         btn.disabled = true;
         try {
-            const resp = await fetch('/analyze-complaints', {
+            const resp = await fetch(`${API_BASE_URL}/analyze-complaints`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ complaints })
