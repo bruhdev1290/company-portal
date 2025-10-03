@@ -35,11 +35,23 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Prepare deployment directory
+        run: |
+          mkdir -p _site
+          # Copy HTML files from root
+          cp *.html _site/ 2>/dev/null || true
+          # Copy static assets
+          cp -r static _site/ 2>/dev/null || true
+          cp -r fonts _site/ 2>/dev/null || true
+          # Copy .nojekyll to prevent Jekyll processing
+          cp .nojekyll _site/
+          # Copy dark-mode.css if it exists at root
+          cp dark-mode.css _site/ 2>/dev/null || true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          # Upload prepared static content only
+          path: '_site'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
